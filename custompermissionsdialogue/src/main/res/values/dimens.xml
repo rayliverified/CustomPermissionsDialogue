@@ -1,0 +1,24 @@
+<resources>
+    <dimen name="activity_horizontal_margin">12dp</dimen>
+    <dimen name="activity_vertical_margin">12dp</dimen>
+
+    <!-- CustomAlertDialogue -->
+    <dimen name="alert_size_divider">1dp</dimen>
+    <dimen name="alert_radius_dialogue">20dp</dimen>
+    <dimen name="alert_radius_actionsheet">10dp</dimen>
+    <dimen name="alert_dialogue_margin_side">30dp</dimen>
+    <dimen name="alert_dialogue_margin_side_land">50dp</dimen>
+    <dimen name="alert_dialogue_margin_top">30dp</dimen>
+    <dimen name="alert_button_height">44dp</dimen>
+    <dimen name="alert_button_text_size">16sp</dimen>
+    <dimen name="alert_button_margin">10dp</dimen>
+    <dimen name="alert_text_margin_border">18dp</dimen>
+    <dimen name="alert_text_margin_bottom">14dp</dimen>
+    <dimen name="alert_text_message_margin_top">12dp</dimen>
+    <dimen name="alert_text_message_margin_bottom">4dp</dimen>
+    <dimen name="alert_text_title_size">20sp</dimen>
+    <dimen name="alert_text_message_size">14sp</dimen>
+    <dimen name="alert_text_title_message_space">6dp</dimen>
+
+    <dimen name="parallax_margin">60dp</dimen>
+</resources>

@@ -1,0 +1,364 @@
+<resources>
+    <string name="app_name">Secret Intro</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- Website Links -->
+    <string name="web_terms">http://streammessenger.com/tos.html</string>
+    <string name="web_privacy">http://streammessenger.com/privacy.html</string>
+
+    <!-- IdeaStarter -->
+    <string name="app_email">admin@streammms.com</string>
+    <string name="app_site">http://iss.streammessenger.com/</string>
+
+    <string name="facebook_app_id">1498577947127849</string>
+    <string name="banner_ad_unit_id">ca-app-pub-9487201146670439/4049895503</string>
+
+    <string name="com.twitter.sdk.android.CONSUMER_KEY">Zg49krj7bDTIEEyNefNWESFFu</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET">AEt9cN4ZivXxpSsOlAq0TeXQ9oDk4PzdpUzsHeOCxJ1H8tuRSA</string>
+
+    <string name="action_login">Log in</string>
+    <string name="action_signup">Sign up</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_continue">Continue</string>
+    <string name="action_about">About</string>
+    <string name="action_ok">OK</string>
+    <string name="action_invest">Submit</string>
+    <string name="action_copy">Copy</string>
+    <string name="action_save">Save</string>
+    <string name="action_open">Open</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_report">Report</string>
+    <string name="action_remove">Delete</string>
+    <string name="action_create">Create</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_next">Next</string>
+    <string name="action_previous">Previous</string>
+    <string name="action_close">Close</string>
+    <string name="action_post">Post</string>
+    <string name="action_search">Search</string>
+    <string name="action_select_birth">Date of Birth</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_remind_later">Remind Later</string>
+    <string name="action_add_percent">Add +10% Return (once/day)</string>
+    <string name="settings_allow_comments">Allow comments on my projects</string>
+    <string name="settings_enable_sound">Toggle sound</string>
+    <string name="settings_sound_on">Sound is turned on</string>
+    <string name="settings_sound_off">Sound is turned off</string>
+    <string name="settings_enable_tutorials">Enable tutorials</string>
+    <string name="settings_enable_tutorials_summary">Display intro tutorials again</string>
+
+    <string name="action_follow">Follow</string>
+    <string name="action_unfollow">Unfollow</string>
+    <string name="action_new">Share Project</string>
+    <string name="action_profile_edit_photo">Edit photo</string>
+    <string name="action_profile_edit_cover">Edit cover</string>
+    <string name="action_profile_edit">Edit profile</string>
+
+    <string name="action_login_with_facebook">Log in with Facebook</string>
+    <string name="action_signup_with_facebook">Sign up with Facebook</string>
+    <string name="action_connect_with_facebook">Connect with Facebook</string>
+    <string name="action_connect_with_twitter">Connect with Twitter</string>
+    <string name="action_remove_connection">Remove connection</string>
+    <string name="action_regular_signup">Return to the regular registration form</string>
+    <string name="action_forgot_password">Forgot password?</string>
+
+    //Vote dialogue box
+    <string name="label_vote_0">Interesting</string>
+    <string name="label_vote_1">Exciting</string>
+    <string name="label_vote_2">Share worthy</string>
+    <string name="label_vote_3">Back this project now!</string>
+
+    <string name="label_profile_report_0">Spam</string>
+    <string name="label_profile_report_1">Hate speech or violence</string>
+    <string name="label_profile_report_2">Nudity or Pornography</string>
+    <string name="label_profile_report_3">Fake profile</string>
+    <string name="label_profile_report_4">Piracy</string>
+
+    <string name="placeholder_password">Password</string>
+    <string name="placeholder_login">Username</string>
+    <string name="placeholder_fullname">Fullname</string>
+    <string name="placeholder_location">Location</string>
+    <string name="placeholder_facebook_page">Facebook page</string>
+    <string name="placeholder_instagram_page">Instagram page</string>
+    <string name="placeholder_bio">Bio</string>
+    <string name="placeholder_email">Email</string>
+    <string name="placeholder_current_password">Current password</string>
+    <string name="placeholder_new_password">New password</string>
+    <string name="placeholder_item_category">Category</string>
+    <string name="placeholder_item_title">Title</string>
+    <string name="placeholder_item_login">Username, email or phone</string>
+    <string name="placeholder_item_passw">Password</string>
+    <string name="placeholder_item_url">Web site</string>
+    <string name="placeholder_item_description">Description</string>
+    <string name="placeholder_post">Description…</string>
+    <string name="placeholder_search">Search</string>
+    <string name="placeholder_comment">Comment</string>
+    <string name="placeholder_idea">Project Title</string>
+    <string name="placeholder_idea_details">Project Description</string>
+
+    <string name="msg_loading">Please wait…</string>
+    <string name="msg_loading_2">Loading. Please wait…</string>
+    <string name="msg_add_percent_not_available">Returns can only be increased once per day, come back tomorrow!</string>
+    <string name="msg_add_percent_accept">+10% Return on Investment!</string>
+    <string name="msg_network_error">Please check your Internet connection</string>
+    <string name="msg_account_blocked">This account is blocked by a moderator.</string>
+    <string name="msg_copied_to_clipboard">Copied to the clipboard.</string>
+    <string name="msg_enter_item">Title and description required.</string>
+    <string name="msg_item_posted">Project posted successfully!</string>
+    <string name="msg_item_saved">Project saved successfully!</string>
+    <string name="msg_password_changed">Password successfully changed</string>
+    <string name="msg_settings_saved">Settings successfully saved.</string>
+    <string name="msg_success_purchase">Purchase made! Congratulations!</string>
+    <string name="msg_password_reset_link_sent">A message with link to reset your password has been sent to your email.</string>
+    <string name="msg_no_such_user_in_bd">No such user in database</string>
+    <string name="msg_connect_to_facebook_success">You have successfully linked application with your account on Facebook!</string>
+    <string name="msg_connect_to_twitter_success">You have successfully linked application with your account on Twitter!</string>
+    <string name="msg_connect_to_facebook_error">Your account on Facebook is already associated with another account.</string>
+    <string name="msg_connect_to_twitter_error">Your account on Twitter is already associated with another account.</string>
+    <string name="msg_connect_to_facebook_removed">Connect with your Facebook account removed.</string>
+    <string name="msg_connect_to_twitter_removed">Connect with your Twitter account removed.</string>
+    <string name="msg_comment_has_been_added">Comment has been added.</string>
+
+    <string name="msg_balance_enough">Not Enough Cash!</string>
+    <string name="msg_balance_prompt">You have not enough money.</string>
+    <string name="msg_vote_accept">Thanks for voting!</string>
+    <string name="msg_investment_accept">Thanks for rating!</string>
+    <string name="msg_vote_exists">You have already voted for this post.</string>
+
+    <string name="error_signin">Incorrect username or password</string>
+    <string name="error_internet_connection">No internet connection</string>
+    <string name="error_data_loading">When loading data error has occurred. Check your network connection.</string>
+    <string name="error_field_empty">Required fields are empty</string>
+    <string name="error_wrong_format">Wrong format</string>
+    <string name="error_small_password">Minimum 6 characters</string>
+    <string name="error_small_username">Minimum 5 characters</string>
+    <string name="error_small_fullname">Minimum 2 characters</string>
+    <string name="error_login_taken">Username is already taken</string>
+    <string name="error_email_taken">User with this mail is already registered</string>
+    <string name="error_password">Invalid password.</string>
+    <string name="error_email">Email invalid.</string>
+
+    <string name="label_authorization_via_facebook">Authorization via Facebook.</string>
+    <string name="label_account_connected_to_facebook">Connected with Facebook</string>
+    <string name="label_authorization_via_twitter">Authorization via Twitter.</string>
+    <string name="label_account_connected_to_twitter">Connected with Twitter</string>
+    <string name="label_account_connect_to_facebook">Connect this account with your social network accounts</string>
+    <string name="label_empty_list">List is empty.</string>
+    <string name="label_hidden">Vote to reveal</string>
+    <string name="label_read_more">Read more</string>
+    <string name="label_idea_worth">Popularity:</string>
+    <string name="label_idea_investment">Your Investment:</string>
+    <string name="label_idea_profit">Investment Profit:</string>
+    <string name="label_level">Level</string>
+    <string name="label_tutorial">Tutorial</string>
+    <string name="label_invest_prompt">Rate this project?</string>
+    <string name="label_total_gold">Total Gold</string>
+    <string name="label_return">Return on Gold</string>
+
+    <string name="label_version_dialog_title">New Version Available!</string>
+    <string name="label_version_dialog_message">We are excited to announce enhancements to IdeaStarter, click OK to update now?</string>
+
+    <string name="label_mr">Mr.</string>
+    <string name="label_ms">Ms.</string>
+
+    <string name="tab_funded">Liked</string>
+    <string name="tab_voted">Voted</string>
+
+    <string name="label_level_1">Level 1</string>
+    <string name="label_level_2">Level 2</string>
+    <string name="label_level_3">Level 3</string>
+    <string name="label_level_4">Level 4</string>
+    <string name="label_level_5">Level 5</string>
+    <string name="label_level_6">Level 6</string>
+    <string name="label_level_7">Level 7</string>
+    <string name="label_level_8">Level 8</string>
+    <string name="label_level_9">Level 9</string>
+    <string name="label_level_10">Level 10</string>
+    <string name="label_level_11">Level 11</string>
+    <string name="label_level_12">Level 12</string>
+    <string name="label_level_13">Level 13</string>
+    <string name="label_level_14">Level 14</string>
+    <string name="label_level_15">Level 15</string>
+    <string name="label_level_16">Level 16</string>
+    <string name="label_level_17">Level 17</string>
+    <string name="label_level_18">Level 18</string>
+    <string name="label_level_19">Level 19</string>
+    <string name="label_level_20">Level 20</string>
+    <string name="label_level_21">Level 21</string>
+    <string name="label_level_22">Level 22</string>
+    <string name="label_level_23">Level 23</string>
+    <string name="label_level_24">Level 24</string>
+    <string name="label_level_25">Level 25</string>
+    <string name="label_level_26">Level 26</string>
+    <string name="label_level_27">Level 27</string>
+    <string name="label_level_28">Level 28</string>
+
+    <string name="label_gold_karat">Karat</string>
+    <string name="label_gold_ounce">Ounce</string>
+    <string name="label_gold_pound">Pound</string>
+    <string name="label_gold_hundredweight">Hundredweight</string>
+    <string name="label_gold_ton">Ton</string>
+
+    <string name="label_info_dialog_title">Welcome Back!</string>
+    <string name="label_info_dialog_gold">Gold Return</string>
+    <string name="label_info_dialog_investment">Investment Return</string>
+    <string name="label_info_dialog_updates">Updates</string>
+
+    <string name="label_info_dialog_updates_text">No new updates.</string>
+
+    <string name="label_post_report_title">Abuse report</string>
+    <string name="label_post_reported">Idea reported.</string>
+    <string name="label_you_havent_items">No projects posted. Add a project!</string>
+    <string name="label_user_havent_items">This user has not posted a project.</string>
+    <string name="label_profile_reported">Profile reported.</string>
+    <string name="label_select_img">Select image</string>
+    <string name="label_delete_img">Delete image?</string>
+    <string name="label_account_disabled">Account blocked</string>
+    <string name="label_search_start_screen_msg">Find People by username, name or email.</string>
+    <string name="label_search_results">Find people:</string>
+    <string name="label_search_results_error">No results found</string>
+    <string name="label_likes_item">voted your post.</string>
+    <string name="label_comment_added">added a new comment.</string>
+    <string name="label_follow_you">follow you.</string>
+    <string name="label_capital">Venture Cash</string>
+
+    //Connections tab
+    <string name="label_items">projects</string>
+    <string name="label_votes">votes</string>
+    <string name="label_investments">investments</string>
+    <string name="label_invested">invested</string>
+    <string name="label_comments">comments</string>
+    <string name="label_followers">followers</string>
+    <string name="label_followings">following</string>
+
+    <string name="label_level_1_complete_profile">Complete profile</string>
+    <string name="label_level_1_acquire_wealth">Acquire Wealth</string>
+
+    <string name="label_level_2_submit_a_world_changing_idea">Submit A World Changing Idea</string>
+    <string name="label_level_2_acquire_wealth">Acquire Wealth</string>
+
+    <string name="label_level_complete_profile">Complete profile</string>
+    <string name="label_level_ideas_count">Idea Starter</string>
+    <string name="label_level_votes_count">Venture Capitalist</string>
+    <string name="label_level_invested_count">Investor</string>
+    <string name="label_level_comments_count">Entrepreneur</string>
+    <string name="label_level_gold_count">Banker</string>
+
+    <string name="signup_label_1">By clicking Sign up, you agree to our</string>
+    <string name="signup_label_terms_and_policies">Terms and Policies</string>
+
+    <string name="settings_header_general">General</string>
+    <string name="settings_header_others">Others</string>
+    <string name="settings_header_about">About</string>
+
+    <string name="settings_version">Version</string>
+    <string name="settings_logout">Log out</string>
+    <string name="settings_copyright_info">Copyright info</string>
+    <string name="settings_contact_us">Contact us</string>
+    <string name="settings_web_site">Our website</string>
+    <string name="settings_deactivate_account">Deactivate account</string>
+    <string name="settings_edit_account">Signature for your secrets</string>
+    <string name="settings_thanks">Acknowledgements</string>
+    <string name="settings_terms">Terms of use</string>
+    <string name="settings_change_password">Change password</string>
+    <string name="settings_services">Services</string>
+    <string name="settings_services_summary">Connect with social network accounts</string>
+    <string name="settings_account_deactivation">This action is permanent! If you deactivate your account, you\'ll have to create a new account to join again.</string>
+
+    <string name="settings_file">account</string>
+    <string name="settings_id">id</string>
+    <string name="settings_access_token">access_token</string>
+    <string name="settings_status">status</string>
+    <string name="settings_username">username</string>
+    <string name="settings_email">email</string>
+    <string name="settings_name">name</string>
+    <string name="settings_firstname">firstname</string>
+    <string name="settings_lastname">lastname</string>
+    <string name="settings_joined">joined</string>
+    <string name="settings_ipaddress">ipaddress</string>
+    <string name="settings_country">country</string>
+    <string name="settings_about">about</string>
+    <string name="settings_sex">sex</string>
+    <string name="settings_dob">dob</string>
+    <string name="settings_profilepic">profilepic</string>
+    <string name="settings_lastrun">lastrun</string>
+    <string name="settings_stream_tutorial">stream_tutorial</string>
+
+    <string name="label_iap_1">Handful of Cash $15VC</string>
+    <string name="label_iap_2">Pile of Cash $50VC</string>
+    <string name="label_iap_3">Stack of Cash $125VC</string>
+    <string name="label_iap_4">"Heap of Cash \n $300VC"</string>
+    <string name="label_iap_5">"Vault of Cash \n $600VC"</string>
+
+    <string name="button_iap_1">Buy $0.99</string>
+    <string name="button_iap_2">Buy $2.99</string>
+    <string name="button_iap_3">Buy $3.99</string>
+    <string name="button_iap_4">Buy $8.99</string>
+    <string name="button_iap_5">Buy $11.99</string>
+
+    <string name="stream_tutorial_1">Discover top crowdfunding projects from Kickstarter and Indiegogo!</string>
+    <string name="stream_tutorial_2">Vote on projects to reveal their popularity.</string>
+    <string name="stream_tutorial_3">Vote often to level up and win cool rewards!</string>
+    <string name="stream_tutorial_4">Top Venture Capitalists win real cash!</string>
+
+    <string name="gold_tutorial_1">Invest in ideas to win gold and get rich!</string>
+    <string name="gold_tutorial_2">Invest each day to accumulate massive returns!</string>
+    <string name="gold_tutorial_3">Don\'t miss a day or returns will be lost!</string>
+    <string name="gold_tutorial_4">More gold = more Venture Cash!</string>
+
+    <string name="tab_stream">Projects</string>
+    <string name="tab_prestige">Prestige</string>
+    <string name="tab_investment">Likes</string>
+    <string name="tab_gold">Gold</string>
+    <string name="tab_feed">Feed</string>
+    <string name="tab_connections">Connections</string>
+    <string name="tab_notifications">Notifications</string>
+
+    <string name="prestige_tab_1">Level</string>
+    <string name="prestige_tab_2">Top VCs (All Time)</string>
+    <string name="prestige_tab_3">Top VCs (Weekly)</string>
+    <string name="prestige_tab_4">Most Active (All Time)</string>
+    <string name="prestige_tab_5">Most Active (Weekly)</string>
+    <string name="prestige_tab_6">Top Contributors (All Time)</string>
+    <string name="prestige_tab_7">Top Contributors (Weekly)</string>
+    <string name="prestige_tab_8">Most Helpful (All Time)</string>
+    <string name="prestige_tab_9">Most Helpful (Weekly)</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="title_activity_login">Log In</string>
+    <string name="title_activity_signup">Sign Up</string>
+    <string name="title_activity_recovery">Password recovery</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_web_view">Web View</string>
+    <string name="title_activity_change_password">Change Password</string>
+    <string name="title_activity_services">Services</string>
+    <string name="title_activity_new_item">New project</string>
+    <string name="title_activity_view_item">Projects</string>
+    <string name="title_activity_profile">Profile</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_search">Search</string>
+    <string name="title_activity_notifications">Notifications</string>
+    <string name="title_activity_photo_view">Photo</string>
+    <string name="title_activity_hashtags">Hashtags</string>
+    <string name="title_activity_followings">Following</string>
+    <string name="title_activity_followers">Followers</string>
+    <string name="title_activity_likes">People who likes this</string>
+    <string name="title_activity_account_settings">Settings</string>
+    <string name="title_activity_report">Report</string>
+    <string name="title_activity_pro">ProActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_investment">Likes</string>
+    <string name="title_activity_gold">Gold</string>
+    <string name="title_activity_billing">Venture Cash Store</string>
+    <string name="title_activity_edit_item">Edit</string>
+</resources>
