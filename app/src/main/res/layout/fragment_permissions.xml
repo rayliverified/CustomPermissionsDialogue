@@ -5,19 +5,87 @@
              android:layout_height="match_parent">
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="@drawable/bg_gradient_dusk"/>
+
+    <ImageView
         android:id="@+id/background_stars"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/bg_stars"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/bg_stars"/>
 
-    <TextView
-        android:id="@+id/intro_text_loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Loading..."
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        android:visibility="gone"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-40dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/bg_moon"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="-40dp"
+        android:scaleType="fitEnd"
+        app:srcCompat="@drawable/bg_mountains_geometric"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_rectangle_outline_white_pressed"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_gravity="center"
+                    android:text="Permission Styles:"
+                    android:textSize="24sp"
+                    android:textColor="@color/white"/>
+
+                <stream.custombutton.CustomButton
+                    style="@style/CustomButtonStyle"
+                    android:id="@+id/btn_1"
+                    android:text="All"/>
+
+                <stream.custombutton.CustomButton
+                    style="@style/CustomButtonStyle"
+                    android:id="@+id/btn_2"
+                    android:text="Required"/>
+
+                <stream.custombutton.CustomButton
+                    style="@style/CustomButtonStyle"
+                    android:id="@+id/btn_3"
+                    android:text="Optional"/>
+
+                <stream.custombutton.CustomButton
+                    style="@style/CustomButtonStyle"
+                    android:id="@+id/btn_4"
+                    android:text="Single"/>
+
+                <stream.custombutton.CustomButton
+                    style="@style/CustomButtonStyle"
+                    android:id="@+id/btn_5"
+                    android:text="Combined"/>
+
+                <stream.custombutton.CustomButton
+                    style="@style/CustomButtonStyle"
+                    android:id="@+id/btn_6"
+                    android:text="Uncancelable"/>
+            </LinearLayout>
+    </ScrollView>
 </FrameLayout>

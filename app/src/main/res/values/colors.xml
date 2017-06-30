@@ -2,23 +2,10 @@
 <resources>
     <color name="colorPrimary">#008af9</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorPrimaryLight">#4dafff</color>
     <color name="colorAccent">#cc3332</color>
-
-    <color name="button_normal">#bbbbbb</color>
-    <color name="button_inactive">#757575</color>
-    <color name="button_pressed">#008af9</color>
 
     <!-- Basic Colors -->
     <color name="white">#FFFFFF</color>
     <color name="white_pressed">#c8ffffff</color>
-    <color name="black">#000000</color>
-    <color name="blackTranslucent">#7c000000</color>
     <color name="transparent">#00FFFFFF</color>
-    <color name="loading">#40c4ff</color>
-    <color name="green">#15CC87</color>
-    <color name="green_light">#1affa7</color>
-    <color name="red">#FE5442</color>
-    <color name="yellow">#FCD007</color>
-    <color name="gray">#555555</color>
 </resources>
