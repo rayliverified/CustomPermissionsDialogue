@@ -35,7 +35,8 @@
             android:layout_height="60dp"
             android:layout_margin="18dp"
             android:layout_gravity="center_horizontal"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/icon_blank"
+            android:scaleType="fitXY"/>
 
         <TextView
             android:id="@+id/message"

@@ -23,6 +23,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -43,7 +44,6 @@ import java.util.ArrayList;
 import stream.custombutton.CustomButton;
 import stream.custompermissionsdialogue.ui.BounceInterpolator;
 import stream.custompermissionsdialogue.utils.PermissionUtils;
-import stream.custompermissionsdialogue.utils.Units;
 
 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
 public class PermissionsDialogue extends DialogFragment {
@@ -223,10 +223,18 @@ public class PermissionsDialogue extends DialogFragment {
             TextView message = (TextView) view.findViewById(R.id.message);
             message.setVisibility(View.GONE);
         }
-        if (builder.getIcon() == false)
+        if (builder.getShowIcon() == false)
         {
             ImageView icon = (ImageView) view.findViewById(R.id.icon);
             icon.setVisibility(View.GONE);
+        }
+        else
+        {
+            if (builder.getIcon() != 0)
+            {
+                ImageView icon = (ImageView) view.findViewById(R.id.icon);
+                icon.setImageDrawable(ContextCompat.getDrawable(mContext, builder.getIcon()));
+            }
         }
 
         requiredPermissions = new ArrayList<>();
@@ -432,6 +440,7 @@ public class PermissionsDialogue extends DialogFragment {
         private boolean autoHide;
         private boolean cancelable = true;
         private boolean showIcon = true;
+        private int icon;
         private Integer phone = 0;
         private Integer sms = 0;
         private Integer contacts = 0;
@@ -456,6 +465,7 @@ public class PermissionsDialogue extends DialogFragment {
             message = in.readString();
             autoHide = in.readByte() != 0;
             cancelable = in.readByte() != 0;
+            showIcon = in.readByte() != 0;
             phone = in.readInt();
             sms = in.readInt();
             contacts = in.readInt();
@@ -524,11 +534,17 @@ public class PermissionsDialogue extends DialogFragment {
         }
         public boolean getCancelable() { return cancelable; }
 
-        public Builder setIcon(boolean showicon) {
+        public Builder setShowIcon(boolean showicon) {
             this.showIcon = showicon;
             return this;
         }
-        public boolean getIcon() { return showIcon; }
+        public boolean getShowIcon() { return showIcon; }
+
+        public Builder setIcon(int icon) {
+            this.icon = icon;
+            return this;
+        }
+        public int getIcon() { return icon; }
 
         public Builder setActivity(Context context) {
             this.context = context;
@@ -1144,6 +1160,17 @@ public class PermissionsDialogue extends DialogFragment {
                     outRect.top = spacing; // item top
                 }
             }
+        }
+    }
+
+    public static class Units {
+        /**
+         * Converts dp to pixels.
+         */
+        public static int dpToPx(Context context, int dp) {
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            int px = Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+            return px;
         }
     }
 }

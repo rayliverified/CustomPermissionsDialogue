@@ -49,7 +49,8 @@ public class PermissionsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         alertPermissions = new PermissionsDialogue.Builder(getActivity())
-                .setMessage("Secret Intro is an Intro App and requires the Following permissions: ")
+                .setMessage("Custom Permissions Dialogue is a sample permissions app and requires the Following permissions: ")
+                .setIcon(R.mipmap.ic_launcher)
                 .setRequirePhone(PermissionsDialogue.REQUIRED)
                 .setRequireSMS(PermissionsDialogue.REQUIRED)
                 .setRequireContacts(PermissionsDialogue.REQUIRED)
@@ -60,7 +61,6 @@ public class PermissionsFragment extends Fragment {
                         dialog.dismiss();
                     }
                 })
-                .setCancelable(false)
                 .build();
         alertPermissions.show();
     }

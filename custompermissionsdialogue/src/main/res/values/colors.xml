@@ -1,105 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008af9</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorPrimaryLight">#4dafff</color>
-    <color name="colorAccent">#cc3332</color>
-
-    <!-- Toolbar Colors -->
-    <color name="toolbarBG">#F9F9F9</color> <!--Main-->
-
     <color name="textPrimary">#2D2D2D</color>
     <color name="textSecondary">#8C8C8C</color>
-    <color name="colorSecondaryText">#757575</color>
-    <color name="colorAudioBackground">#2196F3</color>
 
-    <color name="button_normal">#bbbbbb</color>
     <color name="button_inactive">#757575</color>
     <color name="button_pressed">#008af9</color>
 
-    <!-- Icon Colors -->
-    <color name="iconPrimary">#CD3332</color>
-    <color name="iconHighlight">#FFBF01</color>
-
-    <!-- Bottom Nav Bar -->
-    <color name="navTabBG">#F7F7F7</color>
-    <color name="navTabInactive">#bbbbbb</color>
-    <color name="navInactiveBackground">#eeeeee</color>
-    <color name="navBadge">#da0500</color>
-    <color name="navBadgeText">#ffffff</color>
-    <color name="navTab1">#df5a55</color>
-    <color name="navTab2">#f9bb72</color>
-    <color name="navTab3">#76afcf</color>
-    <color name="navTab4">#dd6495</color>
-    <color name="navTab5">#72d3b4</color>
-
-    <!-- Start Activity -->
-    <color name="introslide1">#f7f7f7</color>
-    <color name="introslide1dark">#E0E0E0</color>
-    <color name="introslide2">#EC407A</color>
-    <color name="introslide2dark">#D81B60</color>
-    <color name="introslide3">#6A1B9A</color>
-    <color name="introslide3dark">#4A148C</color>
-
-    <!-- Feed -->
-    <color name="feed_background">#FFFFFF</color>
-    <color name="feed_divider">#efefef</color>
-
-    <!-- ChatBox -->
-    <color name="chat_titlebar">#ed145b</color>
-    <color name="chat_textPrimary">#2D2D2D</color>
-    <color name="chat_textSecondary">#8C8C8C</color>
-    <color name="chat_receive_content">#ffffff</color>
-    <color name="chat_send_content">#000000</color>
-    <color name="chat_input_background">#F9F9F9</color>
-    <color name="chat_background">#fdfdfd</color>
-    <color name="chat_segment">#C3C3C3</color>
-    <color name="chat_shadow">#808C8C8C</color>
-    <color name="chat_time">#adadad</color>
-    <color name="chat_msgbar">#ffffff</color>
-    <color name="bg_receive_message">#01a1ff</color>
-    <color name="bg_send_message">#f1f1f1</color>
-    <color name="receive_message_shadow">#4001a1ff</color>
-    <color name="send_message_shadow">#408C8C8C</color>
-
     <!-- CustomAlertDialogue -->
-    <color name="alert_divider">#d7d7db</color>
-    <color name="alert_negative">#ff3b30</color>
-    <color name="alert_positive">#007aff</color>
-    <color name="alert_others">#007aff</color>
-    <color name="alert_button_press">#EAEAEA</color>
     <color name="alert_actionsheet_header">#c8ffffff</color>
-    <color name="alert_text_actionsheet_title">#8f8f8f</color>
-    <color name="alert_text_actionsheet_msg">#8f8f8f</color>
     <color name="alert_text_default">#000000</color>
-    <color name="alert_button_actionsheet_default">#ffffff</color>
 
     <!-- Basic Colors -->
     <color name="white">#FFFFFF</color>
-    <color name="white_pressed">#c8ffffff</color>
-    <color name="black">#000000</color>
-    <color name="blackTranslucent">#7c000000</color>
     <color name="transparent">#00FFFFFF</color>
-    <color name="loading">#40c4ff</color>
     <color name="green">#15CC87</color>
     <color name="green_light">#1affa7</color>
     <color name="red">#FE5442</color>
-    <color name="yellow">#FCD007</color>
-    <color name="gray">#555555</color>
-
-    <integer-array name="androidcolors">
-        <item>@color/colorPrimary</item>
-        <item>@color/colorPrimaryDark</item>
-        <item>@color/colorAccent</item>
-        <!--Bottom Nav Bar Colors-->
-        <item>@color/navTabBG</item>
-        <item>@color/navTabInactive</item>
-        <item>@color/navBadge</item>
-        <item>@color/navBadgeText</item>
-        <item>@color/navTab1</item>
-        <item>@color/navTab2</item>
-        <item>@color/navTab3</item>
-        <item>@color/navTab4</item>
-        <item>@color/navTab5</item>
-    </integer-array>
+    <color name="blue">#008af9</color>
+    <color name="blue_light">#4dafff</color>
 </resources>
