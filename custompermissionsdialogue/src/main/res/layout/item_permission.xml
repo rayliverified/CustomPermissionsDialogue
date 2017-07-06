@@ -59,8 +59,8 @@
         app:btn_cornerRadius="20dp"
         app:btn_strokeWidth="1dp"
         app:btn_strokeColor="@color/button_pressed"
-        app:btn_unpressColor="@color/transparent"
-        app:btn_pressColor="@color/button_pressed"
-        app:btn_text_unpressColor="@color/button_pressed"
-        app:btn_text_pressColor="@color/white"/>
+        app:btn_buttonColor="@color/transparent"
+        app:btn_buttonSelectColor="@color/button_pressed"
+        app:btn_textColor="@color/button_pressed"
+        app:btn_textSelectColor="@color/white"/>
 </LinearLayout>

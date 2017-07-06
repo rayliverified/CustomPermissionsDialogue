@@ -27,9 +27,10 @@
         <item name="btn_cornerRadius">20dp</item>
         <item name="btn_strokeWidth">1dp</item>
         <item name="btn_strokeColor">@color/white</item>
-        <item name="btn_unpressColor">@color/transparent</item>
-        <item name="btn_pressColor">@color/transparent</item>
-        <item name="btn_text_unpressColor">@color/white</item>
-        <item name="btn_text_pressColor">@color/white</item>
+        <item name="btn_strokeSelectColor">@color/white_pressed</item>
+        <item name="btn_buttonColor">@color/transparent</item>
+        <item name="btn_buttonSelectColor">@color/transparent</item>
+        <item name="btn_textColor">@color/white</item>
+        <item name="btn_textSelectColor">@color/white_pressed</item>
     </style>
 </resources>
