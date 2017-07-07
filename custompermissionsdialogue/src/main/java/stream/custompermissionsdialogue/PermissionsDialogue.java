@@ -270,7 +270,7 @@ public class PermissionsDialogue extends DialogFragment {
         if (builder.getRequiredRequestPermissions().size() == 0)
         {
             mButton.setText("Continue");
-            mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_activated));
+            mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_activated_selector));
             if (builder.getOnContinueClicked() != null)
             {
                 mButton.setOnClickListener(new View.OnClickListener() {
@@ -339,7 +339,7 @@ public class PermissionsDialogue extends DialogFragment {
         if (denied)
         {
             mButton.setText("DENIED - Open Settings");
-            mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_error));
+            mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_error_selector));
             mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -356,7 +356,7 @@ public class PermissionsDialogue extends DialogFragment {
         else if (builder.getRequiredRequestPermissions().size() == 0)
         {
             mButton.setText("Success!");
-            mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_activated));
+            mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_activated_selector));
             if (builder.getOnContinueClicked() != null)
             {
                 mButton.setOnClickListener(new View.OnClickListener() {
@@ -393,7 +393,7 @@ public class PermissionsDialogue extends DialogFragment {
         }
         else {
             mButton.setText("Permission Denied");
-            mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_error));
+            mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_error_selector));
             mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -1099,8 +1099,8 @@ public class PermissionsDialogue extends DialogFragment {
                 if (optional) {
                     mButton.setText("Active");
                     mButton.setColor(ContextCompat.getColor(mContext, R.color.white), ContextCompat.getColor(mContext, R.color.white),
-                            ContextCompat.getColor(mContext, R.color.green_light), ContextCompat.getColor(mContext, R.color.green), ContextCompat.getColor(mContext, R.color.green));
-                    mButton.setButtonStatus(true);
+                            ContextCompat.getColor(mContext, R.color.green), ContextCompat.getColor(mContext, R.color.green_light),
+                            ContextCompat.getColor(mContext, R.color.green), ContextCompat.getColor(mContext, R.color.green_light));
                     mButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
