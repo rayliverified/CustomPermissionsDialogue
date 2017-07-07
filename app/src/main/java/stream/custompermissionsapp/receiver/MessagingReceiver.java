@@ -1,4 +1,4 @@
-package stream.sample.receiver;
+package stream.custompermissionsapp.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

@@ -1,14 +1,13 @@
-package stream.sample.send;
+package stream.custompermissionsapp.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
-public class DeliveredReceiver extends BroadcastReceiver {
+public class BootReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.v("delivery_receiver", "marking message as delivered");
+
     }
 }

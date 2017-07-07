@@ -1,4 +1,4 @@
-package stream.sample.service;
+package stream.custompermissionsapp.service;
 
 import android.app.IntentService;
 import android.content.Intent;

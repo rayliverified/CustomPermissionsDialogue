@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="stream.sample">
+          package="stream.custompermissionsapp">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -48,7 +48,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeMain">
         <activity
-            android:name="stream.sample.MainActivity"
+            android:name="stream.custompermissionsapp.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppThemeMain">
             <intent-filter>
@@ -73,7 +73,7 @@
 
         <!-- Broadcast receiver for SMS -->
         <receiver
-            android:name="stream.sample.receiver.MessagingReceiver"
+            android:name="stream.custompermissionsapp.receiver.MessagingReceiver"
             android:permission="android.permission.BROADCAST_SMS">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_DELIVER" />
@@ -82,7 +82,7 @@
 
         <!-- Broadcast receiver for MMS -->
         <receiver
-            android:name="stream.sample.receiver.MmsReceiver"
+            android:name="stream.custompermissionsapp.receiver.MmsReceiver"
             android:permission="android.permission.BROADCAST_WAP_PUSH">
             <intent-filter>
                 <action android:name="android.provider.Telephony.WAP_PUSH_DELIVER" />
@@ -91,7 +91,7 @@
         </receiver>
         <!-- Service that delivers messages from the phone "quick response" -->
         <service
-            android:name="stream.sample.service.HeadlessSmsSendService"
+            android:name="stream.custompermissionsapp.service.HeadlessSmsSendService"
             android:exported="true"
             android:permission="android.permission.SEND_RESPOND_VIA_MESSAGE">
             <intent-filter>

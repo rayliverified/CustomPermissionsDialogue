@@ -1,4 +1,4 @@
-package stream.sample;
+package stream.custompermissionsapp;
 
 import android.app.Activity;
 import android.content.Context;
