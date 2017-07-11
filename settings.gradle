@@ -1,1 +1,1 @@
-include ':app', ':custompermissionsdialogue', ':custombutton'
+include ':app', ':custompermissionsdialogue'
