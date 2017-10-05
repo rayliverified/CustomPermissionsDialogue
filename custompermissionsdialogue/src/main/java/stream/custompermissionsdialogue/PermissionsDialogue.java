@@ -128,7 +128,7 @@ public class PermissionsDialogue extends DialogFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mButton = (Button) getView().findViewById(R.id.permissions_btn);
+        mButton = getView().findViewById(R.id.permissions_btn);
         mContext = getContext();
 
         initPermissionsView(view);
@@ -187,7 +187,7 @@ public class PermissionsDialogue extends DialogFragment {
             }
             else
             {
-                LinearLayout permissionsLayout = (LinearLayout) view.findViewById(R.id.permissions_required);
+                LinearLayout permissionsLayout = view.findViewById(R.id.permissions_required);
                 permissionsLayout.setVisibility(View.GONE);
             }
 
@@ -197,7 +197,7 @@ public class PermissionsDialogue extends DialogFragment {
             }
             else
             {
-                LinearLayout permissionsLayout = (LinearLayout) view.findViewById(R.id.permissions_optional);
+                LinearLayout permissionsLayout = view.findViewById(R.id.permissions_optional);
                 permissionsLayout.setVisibility(View.GONE);
             }
         }
@@ -210,29 +210,29 @@ public class PermissionsDialogue extends DialogFragment {
     private void initPermissionsRecyclerView(View view) {
         if (builder.getTitle() != null)
         {
-            TextView title = (TextView) view.findViewById(R.id.title);
+            TextView title = view.findViewById(R.id.title);
             title.setText(builder.getTitle());
         }
         if (builder.getMessage() != null)
         {
-            TextView message = (TextView) view.findViewById(R.id.message);
+            TextView message = view.findViewById(R.id.message);
             message.setText(builder.getMessage());
         }
         else
         {
-            TextView message = (TextView) view.findViewById(R.id.message);
+            TextView message = view.findViewById(R.id.message);
             message.setVisibility(View.GONE);
         }
         if (builder.getShowIcon() == false)
         {
-            ImageView icon = (ImageView) view.findViewById(R.id.icon);
+            ImageView icon = view.findViewById(R.id.icon);
             icon.setVisibility(View.GONE);
         }
         else
         {
             if (builder.getIcon() != 0)
             {
-                ImageView icon = (ImageView) view.findViewById(R.id.icon);
+                ImageView icon = view.findViewById(R.id.icon);
                 icon.setImageDrawable(ContextCompat.getDrawable(mContext, builder.getIcon()));
             }
         }
@@ -240,7 +240,7 @@ public class PermissionsDialogue extends DialogFragment {
         requiredPermissions = new ArrayList<>();
         requiredPermissions = builder.getRequiredPermissions();
         int spanSize = requiredPermissions.size();
-        RecyclerView permissionsRecyclerView = (RecyclerView) view.findViewById(R.id.permissions_list);
+        RecyclerView permissionsRecyclerView = view.findViewById(R.id.permissions_list);
         requiredAdapter = new CustomPermissionsAdapter(mContext, requiredPermissions, false);
         permissionsRecyclerView.setAdapter(requiredAdapter);
         GridLayoutManager layoutManager= new GridLayoutManager(mContext, spanSize, LinearLayoutManager.VERTICAL, false);
@@ -255,7 +255,7 @@ public class PermissionsDialogue extends DialogFragment {
         {
             spanSize = 2;
         }
-        RecyclerView permissionsRecyclerView = (RecyclerView) view.findViewById(R.id.permissions_list_optional);
+        RecyclerView permissionsRecyclerView = view.findViewById(R.id.permissions_list_optional);
         optionalAdapter = new CustomPermissionsAdapter(mContext, optionalPermissions, true);
         permissionsRecyclerView.setAdapter(optionalAdapter);
         GridLayoutManager layoutManager= new GridLayoutManager(mContext, spanSize, LinearLayoutManager.VERTICAL, false);
@@ -266,7 +266,7 @@ public class PermissionsDialogue extends DialogFragment {
     }
 
     private void initPermissionsButton(View view) {
-        mButton = (Button) view.findViewById(R.id.permissions_btn);
+        mButton = view.findViewById(R.id.permissions_btn);
         if (builder.getRequiredRequestPermissions().size() == 0)
         {
             mButton.setText("Continue");
@@ -934,10 +934,10 @@ public class PermissionsDialogue extends DialogFragment {
         public PermissionViewHolder(View itemView) {
             super(itemView);
 
-            mName = (TextView) itemView.findViewById(R.id.permission_name);
-            mMessage = (TextView) itemView.findViewById(R.id.permission_detail);
-            mImage = (ImageView) itemView.findViewById(R.id.permission_icon);
-            mButton = (CustomButton) itemView.findViewById(R.id.permission_btn);
+            mName = itemView.findViewById(R.id.permission_name);
+            mMessage = itemView.findViewById(R.id.permission_detail);
+            mImage = itemView.findViewById(R.id.permission_icon);
+            mButton = itemView.findViewById(R.id.permission_btn);
             mContext = itemView.getContext();
         }
 

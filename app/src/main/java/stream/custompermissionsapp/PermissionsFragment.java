@@ -44,13 +44,13 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_permissions, container, false);
-        mFrameLayout = (FrameLayout) rootView.findViewById(R.id.intro_layout);
-        mButton1 = (CustomButton) rootView.findViewById(R.id.btn_1);
-        mButton2 = (CustomButton) rootView.findViewById(R.id.btn_2);
-        mButton3 = (CustomButton) rootView.findViewById(R.id.btn_3);
-        mButton4 = (CustomButton) rootView.findViewById(R.id.btn_4);
-        mButton5 = (CustomButton) rootView.findViewById(R.id.btn_5);
-        mButton6 = (CustomButton) rootView.findViewById(R.id.btn_6);
+        mFrameLayout = rootView.findViewById(R.id.intro_layout);
+        mButton1 = rootView.findViewById(R.id.btn_1);
+        mButton2 = rootView.findViewById(R.id.btn_2);
+        mButton3 = rootView.findViewById(R.id.btn_3);
+        mButton4 = rootView.findViewById(R.id.btn_4);
+        mButton5 = rootView.findViewById(R.id.btn_5);
+        mButton6 = rootView.findViewById(R.id.btn_6);
         mButton1.setOnClickListener(this);
         mButton2.setOnClickListener(this);
         mButton3.setOnClickListener(this);
