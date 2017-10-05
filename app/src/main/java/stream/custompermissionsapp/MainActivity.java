@@ -15,11 +15,9 @@ import java.lang.ref.WeakReference;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static WeakReference<Activity> mActivityRef;
-    public final String mActivity = "IntroActivity";
-
     private Fragment fragment;
     private Context mContext;
+    public final String mActivity = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_intro);
         mContext = getApplicationContext();
-        mActivityRef = new WeakReference<Activity>(this);
 
         if (savedInstanceState != null) {
 

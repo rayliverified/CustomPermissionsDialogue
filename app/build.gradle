@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "stream.custompermissionsapp"
-        minSdkVersion 16
-        targetSdkVersion 25
+        minSdkVersion 15
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
@@ -24,10 +24,14 @@ repositories {
 }
 
 dependencies {
+    repositories {
+        maven { url "https://maven.google.com" }
+    }
+
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(path: ':custompermissionsdialogue')
 
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:design:25.3.1'
-    compile 'com.android.support:support-vector-drawable:25.3.1'
+    compile 'com.android.support:appcompat-v7:26.0.2'
+    compile 'com.android.support:design:26.0.2'
+    compile 'com.android.support:support-vector-drawable:26.0.2'
 }

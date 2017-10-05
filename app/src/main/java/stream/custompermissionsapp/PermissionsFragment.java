@@ -75,7 +75,7 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
             case R.id.btn_1:
                 //All - Showcases everything in the CustomPermissionsDialogue
                 alertPermissions = new PermissionsDialogue.Builder(getActivity())
-                        .setMessage("Custom Permissions Dialogue is a sample permissions app and requires the Following permissions: ")
+                        .setMessage(getString(R.string.app_name) + " is a sample permissions app and requires the following permissions: ")
                         .setIcon(R.mipmap.ic_launcher)
                         .setRequirePhone(PermissionsDialogue.REQUIRED)
                         .setRequireSMS(PermissionsDialogue.REQUIRED)
@@ -97,7 +97,7 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
             case R.id.btn_2:
                 //Required - Displays all required permissions for the user to grant.
                 alertPermissions = new PermissionsDialogue.Builder(getActivity())
-                        .setMessage("Custom Permissions Dialogue is a sample permissions app and requires the Following permissions: ")
+                        .setMessage(getString(R.string.app_name) + " is a sample permissions app and requires the following permissions: ")
                         .setIcon(R.mipmap.ic_launcher)
                         .setRequirePhone(PermissionsDialogue.REQUIRED)
                         .setRequireSMS(PermissionsDialogue.REQUIRED)
@@ -135,7 +135,7 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
             case R.id.btn_4:
                 //Single - Requests a single permission from the user.
                 alertPermissions = new PermissionsDialogue.Builder(getActivity())
-                        .setMessage("Custom Permissions Dialogue is a sample permissions app and requires the Following permissions: ")
+                        .setMessage(getString(R.string.app_name) + " is a sample permissions app and requires the following permissions: ")
                         .setShowIcon(false)
                         .setRequireStorage(PermissionsDialogue.REQUIRED)
                         .setOnContinueClicked(new PermissionsDialogue.OnContinueClicked() {
@@ -150,7 +150,7 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
             case R.id.btn_5:
                 //Combined - A single permission request combined with other optional permissions that the user can grant.
                 alertPermissions = new PermissionsDialogue.Builder(getActivity())
-                        .setMessage("Custom Permissions Dialogue is a sample permissions app and requires the Following permissions: ")
+                        .setMessage(getString(R.string.app_name) + " is a sample permissions app and requires the following permissions: ")
                         .setShowIcon(false)
                         .setRequireStorage(PermissionsDialogue.REQUIRED)
                         .setRequireCamera(PermissionsDialogue.OPTIONAL)
@@ -169,7 +169,7 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
             case R.id.btn_6:
                 //Uncancelable - Set Cancelable to false to force user to grant permissions before proceeding.
                 alertPermissions = new PermissionsDialogue.Builder(getActivity())
-                        .setMessage("Custom Permissions Dialogue is a sample permissions app and requires the Following permissions: ")
+                        .setMessage(getString(R.string.app_name) + " is a sample permissions app and requires the following permissions: ")
                         .setShowIcon(false)
                         .setCancelable(false)
                         .setRequireStorage(PermissionsDialogue.REQUIRED)
