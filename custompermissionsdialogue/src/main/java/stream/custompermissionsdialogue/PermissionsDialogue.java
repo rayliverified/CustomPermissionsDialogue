@@ -1,6 +1,7 @@
 package stream.custompermissionsdialogue;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -16,7 +17,6 @@ import android.os.Parcelable;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -45,7 +45,6 @@ import stream.custombutton.CustomButton;
 import stream.custompermissionsdialogue.ui.BounceInterpolator;
 import stream.custompermissionsdialogue.utils.PermissionUtils;
 
-@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
 public class PermissionsDialogue extends DialogFragment {
 
     public static Integer NOTREQUIRED = 0;
@@ -334,6 +333,7 @@ public class PermissionsDialogue extends DialogFragment {
         optionalAdapter.notifyDataSetChanged();
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void refreshPermissionsButton(boolean denied)
     {
         if (denied)
