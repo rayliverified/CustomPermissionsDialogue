@@ -1,5 +1,6 @@
 package stream.custompermissionsapp;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -91,6 +92,7 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
                                 dialog.dismiss();
                             }
                         })
+                        .setDecorView(((Activity) mContext).getWindow().getDecorView())
                         .build();
                 alertPermissions.show();
                 break;
@@ -109,6 +111,7 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
                                 dialog.dismiss();
                             }
                         })
+                        .setDecorView(((Activity) mContext).getWindow().getDecorView())
                         .build();
                 alertPermissions.show();
                 break;
@@ -129,6 +132,7 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
                                 dialog.dismiss();
                             }
                         })
+                        .setDecorView(((Activity) mContext).getWindow().getDecorView())
                         .build();
                 alertPermissions.show();
                 break;
@@ -144,6 +148,7 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
                                 dialog.dismiss();
                             }
                         })
+                        .setDecorView(((Activity) mContext).getWindow().getDecorView())
                         .build();
                 alertPermissions.show();
                 break;
@@ -163,6 +168,7 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
                                 dialog.dismiss();
                             }
                         })
+                        .setDecorView(((Activity) mContext).getWindow().getDecorView())
                         .build();
                 alertPermissions.show();
                 break;
@@ -179,6 +185,7 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
                                 dialog.dismiss();
                             }
                         })
+                        .setDecorView(((Activity) mContext).getWindow().getDecorView())
                         .build();
                 alertPermissions.show();
                 break;

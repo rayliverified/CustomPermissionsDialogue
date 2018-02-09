@@ -19,4 +19,5 @@
     <color name="red_light">#ff6c5c</color>
     <color name="blue">#008af9</color>
     <color name="blue_light">#4dafff</color>
+    <color name="colorOverlay">#78ffffff</color>
 </resources>

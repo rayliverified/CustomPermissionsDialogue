@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -41,8 +42,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import eightbitlab.com.blurview.BlurView;
+import eightbitlab.com.blurview.RenderScriptBlur;
 import stream.custombutton.CustomButton;
 import stream.custompermissionsdialogue.ui.BounceInterpolator;
+import stream.custompermissionsdialogue.ui.CustomBlurDialogue;
 import stream.custompermissionsdialogue.utils.PermissionUtils;
 
 public class PermissionsDialogue extends DialogFragment {
@@ -207,6 +211,21 @@ public class PermissionsDialogue extends DialogFragment {
     }
 
     private void initPermissionsRecyclerView(View view) {
+
+        float radius = 5;
+
+//        ViewGroup rootView = builder.getDecorView().findViewById(android.R.id.content);
+//        Drawable windowBackground = builder.getDecorView().getBackground();
+//
+//        BlurView blurView = view.findViewById(R.id.blurview);
+//        blurView.setupWith(rootView)
+//                .windowBackground(windowBackground)
+//                .blurAlgorithm(new RenderScriptBlur(mContext))
+//                .blurRadius(radius);
+
+        CustomBlurDialogue blurDialogue = view.findViewById(R.id.blurview);
+        blurDialogue.create(builder.getDecorView(), radius);
+
         if (builder.getTitle() != null)
         {
             TextView title = view.findViewById(R.id.title);
@@ -247,6 +266,15 @@ public class PermissionsDialogue extends DialogFragment {
     }
 
     private void initOptionalPermissionsRecyclerView(View view) {
+
+        float radius = 5;
+
+        ViewGroup rootView = builder.getDecorView().findViewById(android.R.id.content);
+        Drawable windowBackground = builder.getDecorView().getBackground();
+
+        CustomBlurDialogue blurDialogueOptional = view.findViewById(R.id.blurview_optional);
+        blurDialogueOptional.create(builder.getDecorView(), radius);
+
         optionalPermissions = new ArrayList<>();
         optionalPermissions = builder.getOptionalPermissions();
         int spanSize = optionalPermissions.size();
@@ -457,6 +485,8 @@ public class PermissionsDialogue extends DialogFragment {
         private String cameradescription;
         private String audiodescription;
         private String locationdescription;
+
+        private View decorView;
 
         private Context context;
 
@@ -845,6 +875,15 @@ public class PermissionsDialogue extends DialogFragment {
                 }
             }
             return requestPermissions;
+        }
+
+        public View getDecorView() {
+            return decorView;
+        }
+
+        public Builder setDecorView(View decorView) {
+            this.decorView = decorView;
+            return this;
         }
 
         public Builder(Context context) { this.context = context; }
