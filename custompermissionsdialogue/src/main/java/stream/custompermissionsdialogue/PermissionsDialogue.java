@@ -1104,7 +1104,7 @@ public class PermissionsDialogue extends DialogFragment {
                     mButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            mButton.setButtonStatus(true);
+                            mButton.setPressStatus(true);
                         }
                     });
                 }
