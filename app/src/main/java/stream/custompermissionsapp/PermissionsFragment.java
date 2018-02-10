@@ -73,7 +73,7 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
         switch (view.getId())
         {
             case R.id.btn_1:
-                //All - Showcases everything in the CustomPermissionsDialogue
+                //All - Showcases all CustomPermissionsDialogue permissions.
                 alertPermissions = new PermissionsDialogue.Builder(getActivity())
                         .setMessage(getString(R.string.app_name) + " is a sample permissions app and requires the following permissions: ")
                         .setIcon(R.mipmap.ic_launcher)
