@@ -532,7 +532,7 @@ public class PermissionsDialogue extends DialogFragment {
         }
 
         /**
-         * @param onContinueClicked - this method is called when the `Continue` button is clicked.
+         * @param onContinueClicked - pass a listener to be called when the `Continue` button is clicked.
          * @return
          */
         public Builder setOnContinueClicked(OnContinueClicked onContinueClicked) {
@@ -562,7 +562,7 @@ public class PermissionsDialogue extends DialogFragment {
         public boolean getCancelable() { return cancelable; }
 
         /**
-         * @param showicon - toggle icon visibility. Default icon is app icon.
+         * @param showicon - toggle icon visibility. Default icon shown is app icon.
          * @return
          */
         public Builder setShowIcon(boolean showicon) {
