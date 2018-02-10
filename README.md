@@ -5,7 +5,7 @@
 
 Custom Permissions Dialogue is the only permissions library that supports ALL permission request scenarios. This library handles multiple edge cases such as not enabling all permissions or permanently rejecting a permission request. 
 
-Custom Permissions Dialogue is also the FIRST permissions library with a graphic interface. Not only does Custom Permissions Dialogue offer the most advanced functionality, it looks fantastic while doing so!
+Custom Permissions Dialogue is also the FIRST permissions library with a graphical interface. Not only does Custom Permissions Dialogue offer the most advanced functionality, it looks fantastic while doing so!
 
 This library is part of the Custom UI collection of beautiful, minimalistic, and customizable Android UI components.
 
@@ -21,7 +21,11 @@ implementation 'com.github.searchy2:CustomPermissionsDialogue:latest-version'
 ```
 # Usage
 
+### Code
+
 Custom Permissions Dialogue uses the Builder format to initialize a popup permissions dialogue programmatically. To request a single permissions, just drag and drop the following code into your project. It's that simple!
+
+![Screenshots](screenshots/Custom-Permissions-Dialogue-Simple_540x.jpg)
 
 ```java
 PermissionsDialogue.Builder permissionsDialogue = new PermissionsDialogue.Builder(getActivity())
@@ -44,6 +48,50 @@ permissionsDialogue.show();
 
 Do not attempt to construct the dialogue with `getContext()`. The Builder requires an Activity and passing a Context does not work! 
 
+### Manifest
+
+Remember to add the permissions your app requires to your manifest file. The following code contains a list of all regular Android permissions. 
+
+```java
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_MMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+```
+
 # Customization
 
 Custom Permissions Dialogue supports extensive customization options to fit your permission request needs. 
@@ -51,6 +99,8 @@ Custom Permissions Dialogue supports extensive customization options to fit your
 ### Layouts
 
 **All - Showcases all Custom Permissions Dialogue permissions.**
+
+![Screenshots](screenshots/Custom-Permissions-Dialogue-All_540x.jpg)
 
 ```java
 PermissionsDialogue.Builder permissionsDialogue = new PermissionsDialogue.Builder(getActivity())
@@ -77,6 +127,8 @@ permissionsDialogue.show();
 
 **Required - Displays all required permissions for the user to grant.**
 
+![Screenshots](screenshots/Custom-Permissions-Dialogue-Required_540x.jpg)
+
 ```java
 PermissionsDialogue.Builder permissionsDialogue = new PermissionsDialogue.Builder(getActivity())
         .setMessage(getString(R.string.app_name) + " is a sample permissions app and requires the following permissions: ")
@@ -96,6 +148,8 @@ permissionsDialogue.show();
 ```
 
 **Optional - Optional permissions allows user to selectively enable permissions.**
+
+![Screenshots](screenshots/Custom-Permissions-Dialogue-Optional_540x.jpg)
 
 ```java
 PermissionsDialogue.Builder permissionsDialogue = new PermissionsDialogue.Builder(getActivity())
@@ -119,6 +173,8 @@ permissionsDialogue.show();
 
 **Single - Requests a single permission from the user.**
 
+![Screenshots](screenshots/Custom-Permissions-Dialogue-Single_540x.jpg)
+
 ```java
 PermissionsDialogue.Builder permissionsDialogue = new PermissionsDialogue.Builder(getActivity())
         .setMessage(getString(R.string.app_name) + " is a sample permissions app and requires the following permissions: ")
@@ -135,6 +191,8 @@ permissionsDialogue.show();
 ```
 
 **Combined - A single permission request combined with other optional permissions that the user can grant.**
+
+![Screenshots](screenshots/Custom-Permissions-Dialogue-Combined_540x.jpg)
 
 ```java
 PermissionsDialogue.Builder permissionsDialogue = new PermissionsDialogue.Builder(getActivity())
@@ -156,6 +214,8 @@ permissionsDialogue.show();
 ```
 
 **Uncancelable - Set Cancelable to false to force user to grant permissions before proceeding.**
+
+![Screenshots](screenshots/Custom-Permissions-Dialogue-Single_540x.jpg)
 
 ```java
 PermissionsDialogue.Builder permissionsDialogue = new PermissionsDialogue.Builder(getActivity())
@@ -287,4 +347,4 @@ Ray Li
 </a>
 
 #### Search Terms
-android, popup, permission, permissions, dialog, dialogs, Marshmallow, grant, enable, manager
+android, popup, permission, permissions, dialog, dialogs, Marshmallow, grant, enable, give, manager

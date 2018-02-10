@@ -3,12 +3,15 @@ package stream.custompermissionsapp;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import stream.custombutton.CustomButton;
 import stream.custompermissionsdialogue.PermissionsDialogue;
@@ -18,6 +21,8 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
     private PermissionsDialogue.Builder alertPermissions;
 
     FrameLayout mFrameLayout;
+    ImageView mBackground;
+    CardView mCardView;
     CustomButton mButton1;
     CustomButton mButton2;
     CustomButton mButton3;
@@ -45,6 +50,8 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
 
         View rootView = inflater.inflate(R.layout.fragment_permissions, container, false);
         mFrameLayout = rootView.findViewById(R.id.intro_layout);
+        mBackground = rootView.findViewById(R.id.background);
+        mCardView = rootView.findViewById(R.id.cardview);
         mButton1 = rootView.findViewById(R.id.btn_1);
         mButton2 = rootView.findViewById(R.id.btn_2);
         mButton3 = rootView.findViewById(R.id.btn_3);
@@ -184,6 +191,28 @@ public class PermissionsFragment extends Fragment implements View.OnClickListene
                 break;
             default:
                 break;
+        }
+    }
+
+    //Hide background for screenshots.
+    public void HideBackground(boolean hide)
+    {
+        if (hide)
+        {
+            mBackground.setVisibility(View.GONE);
+            mCardView.setVisibility(View.GONE);
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    HideBackground(false);
+                }
+            }, 5000);
+        }
+        else
+        {
+            mBackground.setVisibility(View.VISIBLE);
+            mCardView.setVisibility(View.VISIBLE);
         }
     }
 
