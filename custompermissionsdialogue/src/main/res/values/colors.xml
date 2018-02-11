@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="textPrimary">#2D2D2D</color>
-    <color name="textSecondary">#8C8C8C</color>
-
     <color name="button_inactive">#757575</color>
     <color name="button_pressed">#008af9</color>
 

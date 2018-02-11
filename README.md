@@ -1,4 +1,4 @@
-[![GitHub release](https://img.shields.io/github/release/searchy2/CustomPermissionsDialogue.svg?style=flat-square)](https://github.com/searchy2/CustomPermissionsDialogue/releases) [![GitHub Release Date](https://img.shields.io/github/release-date/searchy2/CustomPermissionsDialogue.svg?style=flat-square)](https://github.com/searchy2/CustomPermissionsDialogue) [![Libraries.io for GitHub](https://img.shields.io/librariesio/github/searchy2/CustomPermissionsDialogue.svg?style=flat-square)](https://github.com/searchy2/CustomPermissionsDialogue) [![GitHub issues](https://img.shields.io/github/issues/searchy2/CustomPermissionsDialogue.svg?style=flat-square)](https://github.com/searchy2/CustomPermissionsDialogue) [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/badges/shields.svg?style=flat-square)](https://github.com/searchy2/CustomPermissionsDialogue) [![API](https://img.shields.io/badge/API-15%2B-blue.svg?style=flat-square)](https://github.com/searchy2/CustomPermissionsDialogue) [![GitHub top language](https://img.shields.io/github/languages/top/searchy2/CustomPermissionsDialogue.svg?style=flat-square)](https://github.com/searchy2/CustomPermissionsDialogue)
+[![GitHub release](https://img.shields.io/github/release/searchy2/CustomPermissionsDialogue.svg?style=flat-square)](https://github.com/searchy2/CustomPermissionsDialogue/releases) [![GitHub Release Date](https://img.shields.io/github/release-date/searchy2/CustomPermissionsDialogue.svg?style=flat-square)](https://github.com/searchy2/CustomPermissionsDialogue) [![Libraries.io for GitHub](https://img.shields.io/librariesio/github/searchy2/CustomPermissionsDialogue.svg?style=flat-square)](https://github.com/searchy2/CustomPermissionsDialogue) [![GitHub issues](https://img.shields.io/github/issues/searchy2/CustomPermissionsDialogue.svg?style=flat-square)](https://github.com/searchy2/CustomPermissionsDialogue) [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/searchy2/CustomPermissionsDialogue.svg?style=flat-square)](https://github.com/searchy2/CustomPermissionsDialogue) [![API](https://img.shields.io/badge/API-15%2B-blue.svg?style=flat-square)](https://github.com/searchy2/CustomPermissionsDialogue) [![GitHub top language](https://img.shields.io/github/languages/top/searchy2/CustomPermissionsDialogue.svg?style=flat-square)](https://github.com/searchy2/CustomPermissionsDialogue)
 # Custom Permissions Dialogue
 
 ![Screenshots](screenshots/Custom-Permissions-Dialogue-Cover_1280x.gif)
@@ -6,6 +6,8 @@
 Custom Permissions Dialogue is the only permissions library that supports ALL permission request scenarios. This library handles multiple edge cases such as not enabling all permissions or permanently rejecting a permission request. 
 
 Custom Permissions Dialogue is also the FIRST permissions library with a graphical interface. Not only does Custom Permissions Dialogue offer the most advanced functionality, it looks fantastic while doing so!
+
+![Screenshots](screenshots/Custom-Permissions-Dialogue-Screenshot.gif)
 
 This library is part of the Custom UI collection of beautiful, minimalistic, and customizable Android UI components.
 
@@ -25,7 +27,7 @@ implementation 'com.github.searchy2:CustomPermissionsDialogue:latest-version'
 
 Custom Permissions Dialogue uses the Builder format to initialize a popup permissions dialogue programmatically. To request a single permissions, just drag and drop the following code into your project. It's that simple!
 
-![Screenshots](screenshots/Custom-Permissions-Dialogue-Simple_540x.jpg)
+![Screenshots](screenshots/Custom-Permissions-Dialogue-Simple_540x.png)
 
 ```java
 PermissionsDialogue.Builder permissionsDialogue = new PermissionsDialogue.Builder(getActivity())
@@ -100,7 +102,7 @@ Custom Permissions Dialogue supports extensive customization options to fit your
 
 **All - Showcases all Custom Permissions Dialogue permissions.**
 
-![Screenshots](screenshots/Custom-Permissions-Dialogue-All_540x.jpg)
+![Screenshots](screenshots/Custom-Permissions-Dialogue-All_540x.png)
 
 ```java
 PermissionsDialogue.Builder permissionsDialogue = new PermissionsDialogue.Builder(getActivity())
@@ -127,7 +129,7 @@ permissionsDialogue.show();
 
 **Required - Displays all required permissions for the user to grant.**
 
-![Screenshots](screenshots/Custom-Permissions-Dialogue-Required_540x.jpg)
+![Screenshots](screenshots/Custom-Permissions-Dialogue-Required_540x.png)
 
 ```java
 PermissionsDialogue.Builder permissionsDialogue = new PermissionsDialogue.Builder(getActivity())
@@ -149,7 +151,7 @@ permissionsDialogue.show();
 
 **Optional - Optional permissions allows user to selectively enable permissions.**
 
-![Screenshots](screenshots/Custom-Permissions-Dialogue-Optional_540x.jpg)
+![Screenshots](screenshots/Custom-Permissions-Dialogue-Optional_540x.png)
 
 ```java
 PermissionsDialogue.Builder permissionsDialogue = new PermissionsDialogue.Builder(getActivity())
@@ -173,7 +175,7 @@ permissionsDialogue.show();
 
 **Single - Requests a single permission from the user.**
 
-![Screenshots](screenshots/Custom-Permissions-Dialogue-Single_540x.jpg)
+![Screenshots](screenshots/Custom-Permissions-Dialogue-Simple_540x.png)
 
 ```java
 PermissionsDialogue.Builder permissionsDialogue = new PermissionsDialogue.Builder(getActivity())
@@ -192,7 +194,7 @@ permissionsDialogue.show();
 
 **Combined - A single permission request combined with other optional permissions that the user can grant.**
 
-![Screenshots](screenshots/Custom-Permissions-Dialogue-Combined_540x.jpg)
+![Screenshots](screenshots/Custom-Permissions-Dialogue-Combined_540x.png)
 
 ```java
 PermissionsDialogue.Builder permissionsDialogue = new PermissionsDialogue.Builder(getActivity())
@@ -215,7 +217,7 @@ permissionsDialogue.show();
 
 **Uncancelable - Set Cancelable to false to force user to grant permissions before proceeding.**
 
-![Screenshots](screenshots/Custom-Permissions-Dialogue-Single_540x.jpg)
+![Screenshots](screenshots/Custom-Permissions-Dialogue-Simple_540x.png)
 
 ```java
 PermissionsDialogue.Builder permissionsDialogue = new PermissionsDialogue.Builder(getActivity())
@@ -314,11 +316,11 @@ If you've fixed a bug or have a feature you've added, just create a pull request
 # ★ Acknowledgements ★
 **♥ Developer ♥**
 
-Ray Li
+[Ray Li](https://rayliverified.com)
 
 **♥ Designer ♥**
 
-Ray Li
+[Ray Li](https://rayliverified.com)
 
 # ★ Get in Touch ★
 <a href="mailto:ray.li.verified@gmail.com">
