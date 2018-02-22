@@ -971,6 +971,17 @@ public class PermissionsDialogue extends DialogFragment {
             return requestPermissions;
         }
 
+        public View getDecorView() {
+
+            return decorView;
+        }
+
+        public Builder setDecorView(View decorView) {
+
+            this.decorView = decorView;
+            return this;
+        }
+
         public Builder(Context context) { this.context = context; }
 
         /**
