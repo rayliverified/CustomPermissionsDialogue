@@ -5,6 +5,16 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
+    <stream.custompermissionsdialogue.ui.CustomBlurDialogue
+        android:id="@+id/blurview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/alert_dialogue_margin_side"
+        android:layout_marginRight="@dimen/alert_dialogue_margin_side"
+        android:layout_marginTop="@dimen/alert_dialogue_margin_top"
+        android:layout_gravity="center_horizontal"
+        app:blurOverlayColor="@color/colorOverlay">
+
         <LinearLayout
             android:id="@+id/permissions_required"
             android:layout_width="match_parent"
@@ -12,11 +22,7 @@
             android:paddingTop="12dp"
             android:paddingLeft="12dp"
             android:paddingRight="12dp"
-            android:layout_marginLeft="@dimen/alert_dialogue_margin_side"
-            android:layout_marginRight="@dimen/alert_dialogue_margin_side"
-            android:layout_marginTop="@dimen/alert_dialogue_margin_top"
-            android:orientation="vertical"
-            android:background="@drawable/bg_translucent_white">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/title"
@@ -79,17 +85,24 @@
                 android:background="@drawable/icon_add_selector"
                 android:elevation="2dp"/>
         </LinearLayout>
+    </stream.custompermissionsdialogue.ui.CustomBlurDialogue>
+
+    <stream.custompermissionsdialogue.ui.CustomBlurDialogue
+        android:id="@+id/blurview_optional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/alert_dialogue_margin_side"
+        android:layout_marginRight="@dimen/alert_dialogue_margin_side"
+        android:layout_marginTop="@dimen/alert_dialogue_margin_top"
+        android:layout_gravity="center_horizontal"
+        app:blurOverlayColor="@color/colorOverlay">
 
         <LinearLayout
             android:id="@+id/permissions_optional"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
-            android:layout_marginLeft="@dimen/alert_dialogue_margin_side"
-            android:layout_marginRight="@dimen/alert_dialogue_margin_side"
-            android:layout_marginTop="@dimen/alert_dialogue_margin_top"
-            android:orientation="vertical"
-            android:background="@drawable/bg_translucent_white">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/permissions_optional_text"
@@ -111,4 +124,5 @@
                 android:scrollbars="vertical"
                 android:overScrollMode="never"/>
         </LinearLayout>
+    </stream.custompermissionsdialogue.ui.CustomBlurDialogue>
 </LinearLayout>

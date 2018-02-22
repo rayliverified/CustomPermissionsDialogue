@@ -214,17 +214,11 @@ public class PermissionsDialogue extends DialogFragment {
 
         float radius = 5;
 
-//        ViewGroup rootView = builder.getDecorView().findViewById(android.R.id.content);
-//        Drawable windowBackground = builder.getDecorView().getBackground();
-//
-//        BlurView blurView = view.findViewById(R.id.blurview);
-//        blurView.setupWith(rootView)
-//                .windowBackground(windowBackground)
-//                .blurAlgorithm(new RenderScriptBlur(mContext))
-//                .blurRadius(radius);
-
-        CustomBlurDialogue blurDialogue = view.findViewById(R.id.blurview);
-        blurDialogue.create(builder.getDecorView(), radius);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+        {
+            CustomBlurDialogue blurDialogue = view.findViewById(R.id.blurview);
+            blurDialogue.create(builder.getDecorView(), radius);
+        }
 
         if (builder.getTitle() != null)
         {
@@ -269,11 +263,10 @@ public class PermissionsDialogue extends DialogFragment {
 
         float radius = 5;
 
-        ViewGroup rootView = builder.getDecorView().findViewById(android.R.id.content);
-        Drawable windowBackground = builder.getDecorView().getBackground();
-
-        CustomBlurDialogue blurDialogueOptional = view.findViewById(R.id.blurview_optional);
-        blurDialogueOptional.create(builder.getDecorView(), radius);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            CustomBlurDialogue blurDialogueOptional = view.findViewById(R.id.blurview_optional);
+            blurDialogueOptional.create(builder.getDecorView(), radius);
+        }
 
         if (builder.getMessageOptional() != null)
         {
@@ -302,7 +295,13 @@ public class PermissionsDialogue extends DialogFragment {
         if (builder.getRequiredRequestPermissions().size() == 0)
         {
             mButton.setText("Continue");
-            mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_activated_selector));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_activated_selector));
+            }
+            else
+            {
+                mButton.setBackgroundDrawable((ContextCompat.getDrawable(mContext, R.drawable.icon_add_activated_selector)));
+            }
             if (builder.getOnContinueClicked() != null)
             {
                 mButton.setOnClickListener(new View.OnClickListener() {
@@ -372,7 +371,13 @@ public class PermissionsDialogue extends DialogFragment {
         if (denied)
         {
             mButton.setText("DENIED - Open Settings");
-            mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_error_selector));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_error_selector));
+            }
+            else
+            {
+                mButton.setBackgroundDrawable(ContextCompat.getDrawable(mContext, R.drawable.icon_add_error_selector));
+            }
             mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -389,7 +394,13 @@ public class PermissionsDialogue extends DialogFragment {
         else if (builder.getRequiredRequestPermissions().size() == 0)
         {
             mButton.setText("Success!");
-            mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_activated_selector));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_activated_selector));
+            }
+            else
+            {
+                mButton.setBackgroundDrawable(ContextCompat.getDrawable(mContext, R.drawable.icon_add_activated_selector));
+            }
             if (builder.getOnContinueClicked() != null)
             {
                 mButton.setOnClickListener(new View.OnClickListener() {
@@ -426,7 +437,13 @@ public class PermissionsDialogue extends DialogFragment {
         }
         else {
             mButton.setText("Permission Denied");
-            mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_error_selector));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add_error_selector));
+            }
+            else
+            {
+                mButton.setBackgroundDrawable(ContextCompat.getDrawable(mContext, R.drawable.icon_add_error_selector));
+            }
             mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -448,7 +465,13 @@ public class PermissionsDialogue extends DialogFragment {
             Runnable r = new Runnable() {
                 public void run() {
                     mButton.setText("Grant Permissions");
-                    mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        mButton.setBackground(ContextCompat.getDrawable(mContext, R.drawable.icon_add));
+                    }
+                    else
+                    {
+                        mButton.setBackgroundDrawable(ContextCompat.getDrawable(mContext, R.drawable.icon_add));
+                    }
                 }
             };
             handler.postDelayed(r, 1500);
@@ -976,6 +999,7 @@ public class PermissionsDialogue extends DialogFragment {
             return decorView;
         }
 
+        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
         public Builder setDecorView(View decorView) {
 
             this.decorView = decorView;

@@ -9,7 +9,7 @@ public class PermissionUtils {
 
     public static boolean IsPermissionEnabled(Context context, String permission)
     {
-        if (Build.VERSION.SDK_INT >= 23) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             return context.checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED;
         }
         else
@@ -33,7 +33,7 @@ public class PermissionUtils {
 
     public static boolean IsDefaultSMS(Context context)
     {
-        if (Build.VERSION.SDK_INT >= 19) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             String defaultSMSApp = Telephony.Sms.getDefaultSmsPackage(context);
             if (!defaultSMSApp.equals(context.getPackageName()))
             {

@@ -61,6 +61,10 @@ public class CustomBlurDialogue extends BlurView {
                 .blurRadius(radius);
     }
 
+    /**
+     * Set Rounded Corners on Lollipop and above. Use rounded drawable and disable blur below Lollipop.
+     * @param cornerRadius - set corner radius in pixels.
+     */
     private void setRoundedCorners(int cornerRadius) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
