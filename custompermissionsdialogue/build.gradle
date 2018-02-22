@@ -25,7 +25,6 @@ dependencies {
     repositories {
         maven { url 'https://jitpack.io' }
         maven { url "https://maven.google.com" }
-
     }
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.0.2'

@@ -55,10 +55,12 @@ public class CustomBlurDialogue extends BlurView {
         ViewGroup rootView = decorView.findViewById(android.R.id.content);
         Drawable windowBackground = decorView.getBackground();
 
-        setupWith(rootView)
-                .windowBackground(windowBackground)
-                .blurAlgorithm(new RenderScriptBlur(getContext()))
-                .blurRadius(radius);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            setupWith(rootView)
+                    .windowBackground(windowBackground)
+                    .blurAlgorithm(new RenderScriptBlur(getContext()))
+                    .blurRadius(radius);
+        }
     }
 
     /**
