@@ -1,6 +1,5 @@
 package stream.custompermissionsapp;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,8 +9,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
-
-import java.lang.ref.WeakReference;
 
 public class MainActivity extends AppCompatActivity {
 

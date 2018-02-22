@@ -275,6 +275,11 @@ public class PermissionsDialogue extends DialogFragment {
         CustomBlurDialogue blurDialogueOptional = view.findViewById(R.id.blurview_optional);
         blurDialogueOptional.create(builder.getDecorView(), radius);
 
+        if (builder.getMessageOptional() != null)
+        {
+            TextView messageOptional = view.findViewById(R.id.permissions_optional_text);
+            messageOptional.setText(builder.getMessageOptional());
+        }
         optionalPermissions = new ArrayList<>();
         optionalPermissions = builder.getOptionalPermissions();
         int spanSize = optionalPermissions.size();
@@ -462,6 +467,7 @@ public class PermissionsDialogue extends DialogFragment {
 
         private String title;
         private String message;
+        private String messageOptional;
 
         private OnContinueClicked onContinueClicked;
 
@@ -493,6 +499,7 @@ public class PermissionsDialogue extends DialogFragment {
         protected Builder(Parcel in) {
             title = in.readString();
             message = in.readString();
+            messageOptional = in.readString();
             autoHide = in.readByte() != 0;
             cancelable = in.readByte() != 0;
             showIcon = in.readByte() != 0;
@@ -518,22 +525,22 @@ public class PermissionsDialogue extends DialogFragment {
             }
         };
 
-        public Builder setContext(Context context) {
-            this.context = context;
-            return this;
-        }
-        public Context getContext() {
-            return context;
-        }
-
         public Builder getBuilder() { return this; }
 
+        /**
+         * @param title - set Required Permissions title text.
+         * @return
+         */
         public Builder setTitle(String title) {
             this.title = title;
             return this;
         }
         public String getTitle() { return title; }
 
+        /**
+         * @param message - set Required Permissions message text.
+         * @return
+         */
         public Builder setMessage(String message) {
             this.message = message;
             return this;
@@ -542,6 +549,22 @@ public class PermissionsDialogue extends DialogFragment {
             return message;
         }
 
+        /**
+         * @param messageOptional - set Optional Permissions message text.
+         * @return
+         */
+        public Builder setMessageOptional(String messageOptional) {
+            this.messageOptional = messageOptional;
+            return this;
+        }
+        public String getMessageOptional() {
+            return messageOptional;
+        }
+
+        /**
+         * @param onContinueClicked - pass a listener to be called when the `Continue` button is clicked.
+         * @return
+         */
         public Builder setOnContinueClicked(OnContinueClicked onContinueClicked) {
             this.onContinueClicked = onContinueClicked;
             return this;
@@ -558,29 +581,40 @@ public class PermissionsDialogue extends DialogFragment {
             return autoHide;
         }
 
+        /**
+         * @param cancelable - set `false` to prevent dialogue dismissal without user granting required permissions.
+         * @return
+         */
         public Builder setCancelable(boolean cancelable) {
             this.cancelable = cancelable;
             return this;
         }
         public boolean getCancelable() { return cancelable; }
 
+        /**
+         * @param showicon - toggle icon visibility. Default icon shown is app icon.
+         * @return
+         */
         public Builder setShowIcon(boolean showicon) {
             this.showIcon = showicon;
             return this;
         }
         public boolean getShowIcon() { return showIcon; }
 
+        /**
+         * @param icon - pass a drawable resource Id to set as icon.
+         * @return
+         */
         public Builder setIcon(int icon) {
             this.icon = icon;
             return this;
         }
         public int getIcon() { return icon; }
 
-        public Builder setActivity(Context context) {
-            this.context = context;
-            return this;
-        }
-
+        /**
+         * @param phone - set REQUIRED or OPTIONAL flag to display permission request.
+         * @return
+         */
         public Builder setRequirePhone(Integer phone) {
             this.phone = phone;
             return this;
@@ -589,6 +623,10 @@ public class PermissionsDialogue extends DialogFragment {
             return phone;
         }
 
+        /**
+         * @param sms - set REQUIRED or OPTIONAL flag to display permission request.
+         * @return
+         */
         public Builder setRequireSMS(Integer sms) {
             this.sms = sms;
             return this;
@@ -597,6 +635,10 @@ public class PermissionsDialogue extends DialogFragment {
             return sms;
         }
 
+        /**
+         * @param contacts - set REQUIRED or OPTIONAL flag to display permission request.
+         * @return
+         */
         public Builder setRequireContacts(Integer contacts) {
             this.contacts = contacts;
             return this;
@@ -605,6 +647,10 @@ public class PermissionsDialogue extends DialogFragment {
             return contacts;
         }
 
+        /**
+         * @param calendar - set REQUIRED or OPTIONAL flag to display permission request.
+         * @return
+         */
         public Builder setRequireCalendar(Integer calendar) {
             this.calendar = calendar;
             return this;
@@ -613,6 +659,10 @@ public class PermissionsDialogue extends DialogFragment {
             return calendar;
         }
 
+        /**
+         * @param storage - set REQUIRED or OPTIONAL flag to display permission request.
+         * @return
+         */
         public Builder setRequireStorage(Integer storage) {
             this.storage = storage;
             return this;
@@ -621,6 +671,10 @@ public class PermissionsDialogue extends DialogFragment {
             return storage;
         }
 
+        /**
+         * @param camera - set REQUIRED or OPTIONAL flag to display permission request.
+         * @return
+         */
         public Builder setRequireCamera(Integer camera) {
             this.camera = camera;
             return this;
@@ -629,6 +683,10 @@ public class PermissionsDialogue extends DialogFragment {
             return camera;
         }
 
+        /**
+         * @param audio - set REQUIRED or OPTIONAL flag to display permission request.
+         * @return
+         */
         public Builder setRequireAudio(Integer audio) {
             this.audio = audio;
             return this;
@@ -637,6 +695,10 @@ public class PermissionsDialogue extends DialogFragment {
             return audio;
         }
 
+        /**
+         * @param location - set REQUIRED or OPTIONAL flag to display permission request.
+         * @return
+         */
         public Builder setRequireLocation(Integer location) {
             this.location = location;
             return this;
@@ -645,6 +707,10 @@ public class PermissionsDialogue extends DialogFragment {
             return location;
         }
 
+        /**
+         * @param phonedescription - set optional phone permission text.
+         * @return
+         */
         public Builder setPhoneDescription(String phonedescription) {
             this.phonedescription = phonedescription;
             return this;
@@ -653,6 +719,10 @@ public class PermissionsDialogue extends DialogFragment {
             return phonedescription;
         }
 
+        /**
+         * @param smsdescription - set optional text message permission text.
+         * @return
+         */
         public Builder setSMSDescription(String smsdescription) {
             this.smsdescription = smsdescription;
             return this;
@@ -661,6 +731,10 @@ public class PermissionsDialogue extends DialogFragment {
             return smsdescription;
         }
 
+        /**
+         * @param contactsdescription - set optional contact permission text.
+         * @return
+         */
         public Builder setContactDescription(String contactsdescription) {
             this.contactsdescription = contactsdescription;
             return this;
@@ -669,6 +743,10 @@ public class PermissionsDialogue extends DialogFragment {
             return contactsdescription;
         }
 
+        /**
+         * @param calendardescription - set optional calendar permission text.
+         * @return
+         */
         public Builder setCalendarDescription(String calendardescription) {
             this.calendardescription = calendardescription;
             return this;
@@ -677,6 +755,10 @@ public class PermissionsDialogue extends DialogFragment {
             return calendardescription;
         }
 
+        /**
+         * @param storagedescription - set optional storage permission text.
+         * @return
+         */
         public Builder setStorageDescription(String storagedescription) {
             this.storagedescription = storagedescription;
             return this;
@@ -685,6 +767,10 @@ public class PermissionsDialogue extends DialogFragment {
             return storagedescription;
         }
 
+        /**
+         * @param cameradescription - set optional camera permission text.
+         * @return
+         */
         public Builder setCameraDescription(String cameradescription) {
             this.cameradescription = cameradescription;
             return this;
@@ -693,6 +779,10 @@ public class PermissionsDialogue extends DialogFragment {
             return cameradescription;
         }
 
+        /**
+         * @param audiodescription - set optional audio permission text.
+         * @return
+         */
         public Builder setAudioDescription(String audiodescription) {
             this.audiodescription = audiodescription;
             return this;
@@ -701,6 +791,10 @@ public class PermissionsDialogue extends DialogFragment {
             return audiodescription;
         }
 
+        /**
+         * @param locationdescription - set optional location permission text.
+         * @return
+         */
         public Builder setLocationDescription(String locationdescription) {
             this.locationdescription = locationdescription;
             return this;
@@ -877,21 +971,20 @@ public class PermissionsDialogue extends DialogFragment {
             return requestPermissions;
         }
 
-        public View getDecorView() {
-            return decorView;
-        }
-
-        public Builder setDecorView(View decorView) {
-            this.decorView = decorView;
-            return this;
-        }
-
         public Builder(Context context) { this.context = context; }
 
+        /**
+         * Construct the Dialogue Builder.
+         * @return
+         */
         public Builder build() {
             return this;
         }
 
+        /**
+         * Display the Dialogue with Builder parameters.
+         * @return
+         */
         public Dialog show() {
             return PermissionsDialogue.getInstance().show(((Activity) context), this);
         }
@@ -1143,7 +1236,7 @@ public class PermissionsDialogue extends DialogFragment {
                     mButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            mButton.setButtonStatus(true);
+                            mButton.setPressStatus(true);
                         }
                     });
                 }
