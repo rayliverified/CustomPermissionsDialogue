@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -42,8 +41,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import eightbitlab.com.blurview.BlurView;
-import eightbitlab.com.blurview.RenderScriptBlur;
 import stream.custombutton.CustomButton;
 import stream.custompermissionsdialogue.ui.BounceInterpolator;
 import stream.custompermissionsdialogue.ui.CustomBlurDialogue;
@@ -95,7 +92,6 @@ public class PermissionsDialogue extends DialogFragment {
         if (builder != null)
             outState.putParcelable(Builder.class.getSimpleName(), builder);
     }
-
 
     @NonNull
     @Override
@@ -214,7 +210,7 @@ public class PermissionsDialogue extends DialogFragment {
 
         float radius = 5;
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && builder.getDecorView() != null)
         {
             CustomBlurDialogue blurDialogue = view.findViewById(R.id.blurview);
             blurDialogue.create(builder.getDecorView(), radius);
@@ -263,7 +259,7 @@ public class PermissionsDialogue extends DialogFragment {
 
         float radius = 5;
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && builder.getDecorView() != null) {
             CustomBlurDialogue blurDialogueOptional = view.findViewById(R.id.blurview_optional);
             blurDialogueOptional.create(builder.getDecorView(), radius);
         }
@@ -994,17 +990,21 @@ public class PermissionsDialogue extends DialogFragment {
             return requestPermissions;
         }
 
-        public View getDecorView() {
-
-            return decorView;
-        }
-
+        /**
+         * @param decorView - pass the Window DecorView for a nice blurred background. Defaults to overlay color.
+         *                  Here's how to pass the correct DecorView in the following classes:
+         *                  Activity - use `getWindow().getDecorView()`
+         *                  Fragment - use `getActivity().getWindow().getDecorView()`
+         *                  Viewholder - use `((Activity) mContext).getWindow().getDecorView()`
+         * @return
+         */
         @TargetApi(Build.VERSION_CODES.LOLLIPOP)
         public Builder setDecorView(View decorView) {
 
             this.decorView = decorView;
             return this;
         }
+        public View getDecorView() { return decorView; }
 
         public Builder(Context context) { this.context = context; }
 
