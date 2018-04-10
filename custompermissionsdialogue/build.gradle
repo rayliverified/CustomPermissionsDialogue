@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group='com.github.searchy2'
-version = '1.8'
+version = '1.8.1'
 
 android {
     compileSdkVersion 27
@@ -27,10 +27,10 @@ dependencies {
         maven { url "https://maven.google.com" }
     }
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:27.1.0'
-    implementation 'com.github.searchy2:CustomButton:1.7'
+    implementation 'com.github.searchy2:CustomButton:1.7.1'
 
-    implementation 'com.android.support:design:27.1.0'
-    implementation 'com.android.support:support-vector-drawable:27.1.0'
-    implementation 'com.github.Dimezis:BlurView:v1.4.0-SNAPSHOT'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:support-vector-drawable:27.1.1'
+    implementation 'com.github.Dimezis:BlurView:version-1.4.0'
 }
