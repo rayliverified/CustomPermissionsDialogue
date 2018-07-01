@@ -52,7 +52,7 @@
                 android:textSize="@dimen/alert_text_message_size"
                 android:textColor="@color/alert_text_default"/>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/permissions_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                 android:textSize="@dimen/alert_text_message_size"
                 android:textColor="@color/alert_text_default"/>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/permissions_list_optional"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
