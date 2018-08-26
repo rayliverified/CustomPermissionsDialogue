@@ -81,9 +81,26 @@ public class PermissionsDialogue extends DialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
 
+        if (savedInstanceState != null) {
+            if (builder == null) {
+                builder = savedInstanceState.getParcelable(Builder.class.getSimpleName());
+            }
+        }
         setStyle(DialogFragment.STYLE_NO_TITLE, R.style.PermissionsDialogue);
         setRetainInstance(true);
+        if (builder != null)
+        {
+            if (!builder.getCancelable())
+            {
+                this.setCancelable(false);
+            }
+            else
+            {
+                this.setCancelable(true);
+            }
+        }
         super.onCreate(savedInstanceState);
+        mContext = getActivity();
     }
 
     @Override
@@ -128,7 +145,6 @@ public class PermissionsDialogue extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
 
         mButton = getView().findViewById(R.id.permissions_btn);
-        mContext = getContext();
 
         initPermissionsView(view);
     }
@@ -288,7 +304,7 @@ public class PermissionsDialogue extends DialogFragment {
 
     private void initPermissionsButton(View view) {
         mButton = view.findViewById(R.id.permissions_btn);
-        if (builder.getRequiredRequestPermissions().size() == 0)
+        if (getRequiredRequestPermissions().size() == 0)
         {
             mButton.setText("Continue");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -331,7 +347,7 @@ public class PermissionsDialogue extends DialogFragment {
                 public void onClick(View view) {
                     mButton.startAnimation(AnimateButton());
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        ArrayList<String> requestPermissions = builder.getRequiredRequestPermissions();
+                        ArrayList<String> requestPermissions = getRequiredRequestPermissions();
                         if (!requestPermissions.isEmpty()) {
                             requestPermissions(requestPermissions.toArray(new String[requestPermissions.size()]), REQUEST_PERMISSIONS);
                         }
@@ -387,7 +403,7 @@ public class PermissionsDialogue extends DialogFragment {
                 }
             });
         }
-        else if (builder.getRequiredRequestPermissions().size() == 0)
+        else if (getRequiredRequestPermissions().size() == 0)
         {
             mButton.setText("Success!");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -445,7 +461,7 @@ public class PermissionsDialogue extends DialogFragment {
                 public void onClick(View view) {
                     mButton.startAnimation(AnimateButton());
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        ArrayList<String> requestPermissions = builder.getRequiredRequestPermissions();
+                        ArrayList<String> requestPermissions = getRequiredRequestPermissions();
                         if (!requestPermissions.isEmpty()) {
                             requestPermissions(requestPermissions.toArray(new String[requestPermissions.size()]), REQUEST_PERMISSIONS);
                         } else {
@@ -522,6 +538,7 @@ public class PermissionsDialogue extends DialogFragment {
             autoHide = in.readByte() != 0;
             cancelable = in.readByte() != 0;
             showIcon = in.readByte() != 0;
+            icon = in.readInt();
             phone = in.readInt();
             sms = in.readInt();
             contacts = in.readInt();
@@ -530,19 +547,15 @@ public class PermissionsDialogue extends DialogFragment {
             camera = in.readInt();
             audio = in.readInt();
             location = in.readInt();
+            phonedescription = in.readString();
+            smsdescription = in.readString();
+            contactsdescription = in.readString();
+            calendardescription = in.readString();
+            storagedescription = in.readString();
+            cameradescription = in.readString();
+            audiodescription = in.readString();
+            locationdescription = in.readString();
         }
-
-        public static final Creator<Builder> CREATOR = new Creator<Builder>() {
-            @Override
-            public Builder createFromParcel(Parcel in) {
-                return new Builder(in);
-            }
-
-            @Override
-            public Builder[] newArray(int size) {
-                return new Builder[size];
-            }
-        };
 
         public Builder getBuilder() { return this; }
 
@@ -898,98 +911,6 @@ public class PermissionsDialogue extends DialogFragment {
             return requiredPermissions;
         }
 
-        public ArrayList<String> getRequiredRequestPermissions()
-        {
-            ArrayList<String> requestPermissions = new ArrayList<>();
-            if (requirePhone() == REQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.CALL_PHONE)) {
-                    requestPermissions.add(Manifest.permission.CALL_PHONE);
-                }
-            }
-            if (requireSMS() == REQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.SEND_SMS)) {
-                    requestPermissions.add(Manifest.permission.SEND_SMS);
-                }
-            }
-            if (requireContacts() == REQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.WRITE_CONTACTS)) {
-                    requestPermissions.add(Manifest.permission.WRITE_CONTACTS);
-                }
-            }
-            if (requireCalendar() == REQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.WRITE_CALENDAR)) {
-                    requestPermissions.add(Manifest.permission.WRITE_CALENDAR);
-                }
-            }
-            if (requireStorage() == REQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    requestPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-                }
-            }
-            if (requireCamera() == REQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.CAMERA)) {
-                    requestPermissions.add(Manifest.permission.CAMERA);
-                }
-            }
-            if (requireAudio() == REQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.RECORD_AUDIO)) {
-                    requestPermissions.add(Manifest.permission.RECORD_AUDIO);
-                }
-            }
-            if (requireLocation() == REQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.ACCESS_FINE_LOCATION)) {
-                    requestPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
-                }
-            }
-            return requestPermissions;
-        }
-
-        public ArrayList<String> getAllRequestPermissions()
-        {
-            ArrayList<String> requestPermissions = new ArrayList<>();
-            if (requirePhone() > NOTREQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.CALL_PHONE)) {
-                    requestPermissions.add(Manifest.permission.CALL_PHONE);
-                }
-            }
-            if (requireSMS() > NOTREQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.SEND_SMS)) {
-                    requestPermissions.add(Manifest.permission.SEND_SMS);
-                }
-            }
-            if (requireContacts() > NOTREQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.WRITE_CONTACTS)) {
-                    requestPermissions.add(Manifest.permission.WRITE_CONTACTS);
-                }
-            }
-            if (requireCalendar() > NOTREQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.WRITE_CALENDAR)) {
-                    requestPermissions.add(Manifest.permission.WRITE_CALENDAR);
-                }
-            }
-            if (requireStorage() > NOTREQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    requestPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-                }
-            }
-            if (requireCamera() > NOTREQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.CAMERA)) {
-                    requestPermissions.add(Manifest.permission.CAMERA);
-                }
-            }
-            if (requireAudio() > NOTREQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.RECORD_AUDIO)) {
-                    requestPermissions.add(Manifest.permission.RECORD_AUDIO);
-                }
-            }
-            if (requireLocation() > NOTREQUIRED) {
-                if (!PermissionUtils.IsPermissionEnabled(context, Manifest.permission.ACCESS_FINE_LOCATION)) {
-                    requestPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
-                }
-            }
-            return requestPermissions;
-        }
-
         /**
          * @param decorView - pass the Window DecorView for a nice blurred background. Defaults to overlay color.
          *                  Here's how to pass the correct DecorView in the following classes:
@@ -1024,6 +945,18 @@ public class PermissionsDialogue extends DialogFragment {
             return PermissionsDialogue.getInstance().show(((Activity) context), this);
         }
 
+        public static final Creator<Builder> CREATOR = new Creator<Builder>() {
+            @Override
+            public Builder createFromParcel(Parcel in) {
+                return new Builder(in);
+            }
+
+            @Override
+            public Builder[] newArray(int size) {
+                return new Builder[size];
+            }
+        };
+
         @Override
         public int describeContents() {
             return 0;
@@ -1031,6 +964,29 @@ public class PermissionsDialogue extends DialogFragment {
 
         @Override
         public void writeToParcel(Parcel parcel, int i) {
+            parcel.writeString(title);
+            parcel.writeString(message);
+            parcel.writeString(messageOptional);
+            parcel.writeInt((byte) (autoHide ? 1 : 0));
+            parcel.writeInt((byte) (cancelable ? 1 : 0));
+            parcel.writeInt((byte) (showIcon ? 1 : 0));
+            parcel.writeInt(icon);
+            parcel.writeInt(phone);
+            parcel.writeInt(sms);
+            parcel.writeInt(contacts);
+            parcel.writeInt(calendar);
+            parcel.writeInt(storage);
+            parcel.writeInt(camera);
+            parcel.writeInt(audio);
+            parcel.writeInt(location);
+            parcel.writeString(phonedescription);
+            parcel.writeString(smsdescription);
+            parcel.writeString(contactsdescription);
+            parcel.writeString(calendardescription);
+            parcel.writeString(storagedescription);
+            parcel.writeString(cameradescription);
+            parcel.writeString(audiodescription);
+            parcel.writeString(locationdescription);
         }
     }
 
@@ -1041,6 +997,98 @@ public class PermissionsDialogue extends DialogFragment {
 
     public interface OnContinueClicked {
         void OnClick(View view, Dialog dialog);
+    }
+
+    public ArrayList<String> getRequiredRequestPermissions()
+    {
+        ArrayList<String> requestPermissions = new ArrayList<>();
+        if (builder.requirePhone() == REQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.CALL_PHONE)) {
+                requestPermissions.add(Manifest.permission.CALL_PHONE);
+            }
+        }
+        if (builder.requireSMS() == REQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.SEND_SMS)) {
+                requestPermissions.add(Manifest.permission.SEND_SMS);
+            }
+        }
+        if (builder.requireContacts() == REQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.WRITE_CONTACTS)) {
+                requestPermissions.add(Manifest.permission.WRITE_CONTACTS);
+            }
+        }
+        if (builder.requireCalendar() == REQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.WRITE_CALENDAR)) {
+                requestPermissions.add(Manifest.permission.WRITE_CALENDAR);
+            }
+        }
+        if (builder.requireStorage() == REQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                requestPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            }
+        }
+        if (builder.requireCamera() == REQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.CAMERA)) {
+                requestPermissions.add(Manifest.permission.CAMERA);
+            }
+        }
+        if (builder.requireAudio() == REQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.RECORD_AUDIO)) {
+                requestPermissions.add(Manifest.permission.RECORD_AUDIO);
+            }
+        }
+        if (builder.requireLocation() == REQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                requestPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+            }
+        }
+        return requestPermissions;
+    }
+
+    public ArrayList<String> getAllRequestPermissions()
+    {
+        ArrayList<String> requestPermissions = new ArrayList<>();
+        if (builder.requirePhone() > NOTREQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.CALL_PHONE)) {
+                requestPermissions.add(Manifest.permission.CALL_PHONE);
+            }
+        }
+        if (builder.requireSMS() > NOTREQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.SEND_SMS)) {
+                requestPermissions.add(Manifest.permission.SEND_SMS);
+            }
+        }
+        if (builder.requireContacts() > NOTREQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.WRITE_CONTACTS)) {
+                requestPermissions.add(Manifest.permission.WRITE_CONTACTS);
+            }
+        }
+        if (builder.requireCalendar() > NOTREQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.WRITE_CALENDAR)) {
+                requestPermissions.add(Manifest.permission.WRITE_CALENDAR);
+            }
+        }
+        if (builder.requireStorage() > NOTREQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                requestPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            }
+        }
+        if (builder.requireCamera() > NOTREQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.CAMERA)) {
+                requestPermissions.add(Manifest.permission.CAMERA);
+            }
+        }
+        if (builder.requireAudio() > NOTREQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.RECORD_AUDIO)) {
+                requestPermissions.add(Manifest.permission.RECORD_AUDIO);
+            }
+        }
+        if (builder.requireLocation() > NOTREQUIRED) {
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                requestPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+            }
+        }
+        return requestPermissions;
     }
 
     public Animation AnimateButton() {
