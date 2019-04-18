@@ -15,14 +15,6 @@ import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.provider.Settings;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -38,6 +30,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -150,7 +151,7 @@ public class PermissionsDialogue extends DialogFragment {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         Log.d("Request Code", String.valueOf(requestCode));
         switch (requestCode) {
             case REQUEST_PERMISSIONS: {
@@ -1002,42 +1003,42 @@ public class PermissionsDialogue extends DialogFragment {
     public ArrayList<String> getRequiredRequestPermissions()
     {
         ArrayList<String> requestPermissions = new ArrayList<>();
-        if (builder.requirePhone() == REQUIRED) {
+        if (builder.requirePhone().equals(REQUIRED)) {
             if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.CALL_PHONE)) {
                 requestPermissions.add(Manifest.permission.CALL_PHONE);
             }
         }
-        if (builder.requireSMS() == REQUIRED) {
+        if (builder.requireSMS().equals(REQUIRED)) {
             if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.SEND_SMS)) {
                 requestPermissions.add(Manifest.permission.SEND_SMS);
             }
         }
-        if (builder.requireContacts() == REQUIRED) {
+        if (builder.requireContacts().equals(REQUIRED)) {
             if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.WRITE_CONTACTS)) {
                 requestPermissions.add(Manifest.permission.WRITE_CONTACTS);
             }
         }
-        if (builder.requireCalendar() == REQUIRED) {
+        if (builder.requireCalendar().equals(REQUIRED)) {
             if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.WRITE_CALENDAR)) {
                 requestPermissions.add(Manifest.permission.WRITE_CALENDAR);
             }
         }
-        if (builder.requireStorage() == REQUIRED) {
+        if (builder.requireStorage().equals(REQUIRED)) {
             if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                 requestPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
             }
         }
-        if (builder.requireCamera() == REQUIRED) {
+        if (builder.requireCamera().equals(REQUIRED)) {
             if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.CAMERA)) {
                 requestPermissions.add(Manifest.permission.CAMERA);
             }
         }
-        if (builder.requireAudio() == REQUIRED) {
+        if (builder.requireAudio().equals(REQUIRED)) {
             if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.RECORD_AUDIO)) {
                 requestPermissions.add(Manifest.permission.RECORD_AUDIO);
             }
         }
-        if (builder.requireLocation() == REQUIRED) {
+        if (builder.requireLocation().equals(REQUIRED)) {
             if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.ACCESS_FINE_LOCATION)) {
                 requestPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
             }
@@ -1299,10 +1300,6 @@ public class PermissionsDialogue extends DialogFragment {
                     mMessage.setVisibility(View.GONE);
                 }
             }
-            else
-            {
-
-            }
         }
 
         public void setRequestPermissions(final String requestPermission)
@@ -1384,8 +1381,7 @@ public class PermissionsDialogue extends DialogFragment {
          */
         public static int dpToPx(Context context, int dp) {
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            int px = Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
-            return px;
+            return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
         }
     }
 }
