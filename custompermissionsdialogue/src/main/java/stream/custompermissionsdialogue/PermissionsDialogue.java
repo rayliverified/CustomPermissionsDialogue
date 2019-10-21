@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -53,6 +54,7 @@ public class PermissionsDialogue extends DialogFragment {
     public static Integer REQUIRED = 1;
     public static Integer OPTIONAL = 2;
     public static String REQUIRE_PHONE = "REQUIRE_PHONE";
+    public static String REQUIRE_PHONE_STATE = "REQUIRE_PHONE_STATE";
     public static String REQUIRE_SMS = "REQUIRE_SMS";
     public static String REQUIRE_CONTACTS = "REQUIRE_CONTACTS";
     public static String REQUIRE_CALENDAR = "REQUIRE_CALENDAR";
@@ -268,7 +270,7 @@ public class PermissionsDialogue extends DialogFragment {
         RecyclerView permissionsRecyclerView = view.findViewById(R.id.permissions_list);
         requiredAdapter = new CustomPermissionsAdapter(mContext, requiredPermissions, false);
         permissionsRecyclerView.setAdapter(requiredAdapter);
-        GridLayoutManager layoutManager= new GridLayoutManager(mContext, spanSize, LinearLayoutManager.VERTICAL, false);
+        GridLayoutManager layoutManager= new GridLayoutManager(mContext, spanSize, RecyclerView.VERTICAL, false);
         permissionsRecyclerView.setLayoutManager(layoutManager);
     }
 
@@ -296,7 +298,7 @@ public class PermissionsDialogue extends DialogFragment {
         RecyclerView permissionsRecyclerView = view.findViewById(R.id.permissions_list_optional);
         optionalAdapter = new CustomPermissionsAdapter(mContext, optionalPermissions, true);
         permissionsRecyclerView.setAdapter(optionalAdapter);
-        GridLayoutManager layoutManager= new GridLayoutManager(mContext, spanSize, LinearLayoutManager.VERTICAL, false);
+        GridLayoutManager layoutManager= new GridLayoutManager(mContext, spanSize, RecyclerView.VERTICAL, false);
         permissionsRecyclerView.setLayoutManager(layoutManager);
         int spacing = Units.dpToPx(mContext, 40);
         boolean includeEdge = true;
@@ -512,6 +514,7 @@ public class PermissionsDialogue extends DialogFragment {
         private boolean showIcon = true;
         private int icon;
         private Integer phone = 0;
+        private Integer phonestate = 0;
         private Integer sms = 0;
         private Integer contacts = 0;
         private Integer calendar = 0;
@@ -520,6 +523,7 @@ public class PermissionsDialogue extends DialogFragment {
         private Integer audio = 0;
         private Integer location = 0;
         private String phonedescription;
+        private String phonestatedescription;
         private String smsdescription;
         private String contactsdescription;
         private String calendardescription;
@@ -541,6 +545,7 @@ public class PermissionsDialogue extends DialogFragment {
             showIcon = in.readByte() != 0;
             icon = in.readInt();
             phone = in.readInt();
+            phonestate = in.readInt();
             sms = in.readInt();
             contacts = in.readInt();
             calendar = in.readInt();
@@ -549,6 +554,7 @@ public class PermissionsDialogue extends DialogFragment {
             audio = in.readInt();
             location = in.readInt();
             phonedescription = in.readString();
+            phonestatedescription = in.readString();
             smsdescription = in.readString();
             contactsdescription = in.readString();
             calendardescription = in.readString();
@@ -657,6 +663,27 @@ public class PermissionsDialogue extends DialogFragment {
         }
 
         /**
+         * @param phoneState - set REQUIRED or OPTIONAL flag to display permission request.
+         * @return
+         */
+        public Builder setRequirePhoneState(Integer phoneState) {
+            this.phonestate = phoneState;
+            return this;
+        }
+        public Integer requirePhoneState() {
+
+            // If the user set PHONE_CALL then I don't need READ_PHONE_STATE (PHONE_CALL includes READ_PHONE_STATE)
+            //  but, if they supplied a description then I'll included READ_PHONE_STATE because they show different reasons.
+            if ((phone != phonestate && (phone != NOTREQUIRED && phone != REQUIRED)) ||
+                    (phone == OPTIONAL && phonestate == OPTIONAL) ||
+                    (!TextUtils.isEmpty(phonestatedescription) && !phonestatedescription.equalsIgnoreCase(phonedescription))) {
+                return phonestate;
+            }
+
+            return NOTREQUIRED;
+        }
+
+        /**
          * @param sms - set REQUIRED or OPTIONAL flag to display permission request.
          * @return
          */
@@ -753,6 +780,18 @@ public class PermissionsDialogue extends DialogFragment {
         }
 
         /**
+         * @param phonestatedescription - set optional phone permission text.
+         * @return
+         */
+        public Builder setPhoneStateDescription(String phonestatedescription) {
+            this.phonestatedescription = phonestatedescription;
+            return this;
+        }
+        public String getPhoneStateDescription() {
+            return phonestatedescription;
+        }
+
+        /**
          * @param smsdescription - set optional text message permission text.
          * @return
          */
@@ -843,6 +882,10 @@ public class PermissionsDialogue extends DialogFragment {
             {
                 requiredPermissions.add(REQUIRE_PHONE);
             }
+            if (requirePhoneState() == REQUIRED)
+            {
+                requiredPermissions.add(REQUIRE_PHONE_STATE);
+            }
             if (requireSMS() == REQUIRED)
             {
                 requiredPermissions.add(REQUIRE_SMS);
@@ -880,6 +923,10 @@ public class PermissionsDialogue extends DialogFragment {
             if (requirePhone() == OPTIONAL)
             {
                 requiredPermissions.add(REQUIRE_PHONE);
+            }
+            if (requirePhoneState() == OPTIONAL)
+            {
+                requiredPermissions.add(REQUIRE_PHONE_STATE);
             }
             if (requireSMS() == OPTIONAL)
             {
@@ -973,6 +1020,7 @@ public class PermissionsDialogue extends DialogFragment {
             parcel.writeInt((byte) (showIcon ? 1 : 0));
             parcel.writeInt(icon);
             parcel.writeInt(phone);
+            parcel.writeInt(phonestate);
             parcel.writeInt(sms);
             parcel.writeInt(contacts);
             parcel.writeInt(calendar);
@@ -981,6 +1029,7 @@ public class PermissionsDialogue extends DialogFragment {
             parcel.writeInt(audio);
             parcel.writeInt(location);
             parcel.writeString(phonedescription);
+            parcel.writeString(phonestatedescription);
             parcel.writeString(smsdescription);
             parcel.writeString(contactsdescription);
             parcel.writeString(calendardescription);
@@ -1006,6 +1055,16 @@ public class PermissionsDialogue extends DialogFragment {
         if (builder.requirePhone().equals(REQUIRED)) {
             if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.CALL_PHONE)) {
                 requestPermissions.add(Manifest.permission.CALL_PHONE);
+            }
+        }
+        if (builder.requirePhoneState().equals(REQUIRED)) {
+            // Technically, I don't need REQUIRE_PHONE_STATE when REQUIRE_PHONE is indicated
+            //  but then I'd need to handle 'what-if' (e.g., separate description texts.
+            // For now; leave it to the caller to know when permissions are inclusive
+            // Note: If both are indicated; only CALL_PHONE will be prompted
+
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.READ_PHONE_STATE)) {
+                requestPermissions.add(Manifest.permission.READ_PHONE_STATE);
             }
         }
         if (builder.requireSMS().equals(REQUIRED)) {
@@ -1052,6 +1111,16 @@ public class PermissionsDialogue extends DialogFragment {
         if (builder.requirePhone() > NOTREQUIRED) {
             if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.CALL_PHONE)) {
                 requestPermissions.add(Manifest.permission.CALL_PHONE);
+            }
+        }
+        if (builder.requirePhoneState() > NOTREQUIRED) {
+            // Technically, I don't need REQUIRE_PHONE_STATE when REQUIRE_PHONE is indicated
+            //  but then I'd need to handle 'what-if' (e.g., separate description texts.
+            // For now; leave it to the caller to know when permissions are inclusive
+            // Note: If both are indicated; only CALL_PHONE will be prompted
+
+            if (!PermissionUtils.IsPermissionEnabled(mContext, Manifest.permission.READ_PHONE_STATE)) {
+                requestPermissions.add(Manifest.permission.READ_PHONE_STATE);
             }
         }
         if (builder.requireSMS() > NOTREQUIRED) {
@@ -1173,6 +1242,26 @@ public class PermissionsDialogue extends DialogFragment {
                 if (builder.getPhoneDescription() != null)
                 {
                     mMessage.setText(builder.getPhoneDescription());
+                    mMessage.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    mMessage.setVisibility(View.GONE);
+                }
+            }
+            else if (REQUIRE_PHONE_STATE.equals(permission))
+            {
+                // Technically, I don't need REQUIRE_PHONE_STATE when REQUIRE_PHONE is indicated
+                //  but then I'd need to handle 'what-if' (e.g., separate description texts.
+                // For now; leave it to the caller to know when permissions are inclusive
+
+                mName.setText("Phone State");
+                mImage.setImageResource(R.drawable.ic_phone);
+                setRequestPermissions(Manifest.permission.READ_PHONE_STATE);
+
+                if (builder.getPhoneStateDescription() != null)
+                {
+                    mMessage.setText(builder.getPhoneStateDescription());
                     mMessage.setVisibility(View.VISIBLE);
                 }
                 else
