@@ -1450,7 +1450,8 @@ public class PermissionsDialogue extends DialogFragment {
                 outRect.left = spacing - column * spacing / spanCount; // spacing - column * ((1f / spanCount) * spacing)
                 outRect.right = (column + 1) * spacing / spanCount; // (column + 1) * ((1f / spanCount) * spacing)
 
-//                if (position < spanCount) { // top edge
+                // Top Edge Spacing.
+//                if (position < spanCount) {
 //                    outRect.top = spacing/2;
 //                }
                 outRect.bottom = spacing/2; // item bottom

@@ -31,7 +31,7 @@ dependencies {
     implementation project(path: ':custompermissionsdialogue')
     implementation 'com.github.searchy2:CustomButton:1.9.0'
 
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
 }
