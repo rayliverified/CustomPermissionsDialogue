@@ -676,6 +676,7 @@ public class PermissionsDialogue extends DialogFragment {
             //  but, if they supplied a description then I'll included READ_PHONE_STATE because they show different reasons.
             if ((phone != phonestate && (phone != NOTREQUIRED && phone != REQUIRED)) ||
                     (phone == OPTIONAL && phonestate == OPTIONAL) ||
+                    (TextUtils.isEmpty(phonestatedescription) && (phone != phonestate && phone != REQUIRED))  ||
                     (!TextUtils.isEmpty(phonestatedescription) && !phonestatedescription.equalsIgnoreCase(phonedescription))) {
                 return phonestate;
             }
