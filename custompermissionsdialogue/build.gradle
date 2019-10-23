@@ -25,10 +25,10 @@ dependencies {
         maven { url 'https://jitpack.io' }
         maven { url "https://maven.google.com" }
     }
-    api fileTree(include: ['*.jar'], dir: 'libs')
-    api 'com.github.searchy2:CustomButton:1.9.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.github.searchy2:CustomButton:1.9.0'
 
-    api 'androidx.appcompat:appcompat:1.0.2'
-    api 'com.google.android.material:material:1.0.0'
-    api 'com.eightbitlab:blurview:1.5.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.eightbitlab:blurview:1.5.0'
 }
